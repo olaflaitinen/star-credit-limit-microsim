@@ -21,6 +21,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT_DIR = os.path.join(HERE, "..", "assets", "fonts", "Ubuntu")
+BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 FACE_FILES = {
     "Ubuntu": "Ubuntu-Regular.ttf",
     "Ubuntu Medium": "Ubuntu-Medium.ttf",
@@ -44,7 +45,8 @@ def main() -> None:
         for ext in (".png", ".svg", ".jpg", ".webp"):
             if bid + ext in have:
                 return f'src="assets/{bid}{ext}"'
-        return f'src="" data-missing-blob="{bid}"'
+        # image not exported: transparent pixel, shown as a neutral placeholder box
+        return f'src="{BLANK}" data-missing-blob="{bid}"'
 
     parts = []
     for i, sid in enumerate(deck["order"], 1):
@@ -69,6 +71,7 @@ body{{margin:0;background:#2b2b30;color:#eee;font-family:Ubuntu,Arial,sans-serif
 .scaler *{{margin:0;box-sizing:border-box}}
 .note{{max-width:1280px;margin:0 auto 32px;font-size:15px;line-height:1.5;color:#ccc}}
 body.hide-notes .note{{display:none}}
+img[data-missing-blob]{{background:#E6ECEF}}
 </style></head><body>
 {''.join(parts)}
 <script>

@@ -18,7 +18,7 @@ Online previews (GitHub Pages):
 
 - `deck.json`: title, `order` (slide ids), `sections`, `faces` (fonts as uploaded blobs).
 - `slides/<id>.html`: exactly one `<section>`, a fixed 1920x1080 canvas, inline styles only. The speaker notes are the `<aside>` (last child).
-- `assets/`: images that slides reference as `/_blob/<id>`. `main_18` has the simulator screenshot; `final_9` has the simulator screenshot and three 10x10 grid SVGs ("35 из 100", "24 из 100", "14 из 100"). The nine images of `speech_9` (thumbnails of the `final_9` slides) were not exported, so its preview shows the text only.
+- `assets/`: images that slides reference as `/_blob/<id>`. `main_18` has the simulator screenshot; `final_9` has the simulator screenshot and three 10x10 grid SVGs ("35 из 100", "24 из 100", "14 из 100"). The nine images of `speech_9` (thumbnails of the `final_9` slides) were not exported, so its preview shows grey placeholders in their place.
 
 ## Preview offline
 
