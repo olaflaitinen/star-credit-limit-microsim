@@ -1,0 +1,1048 @@
+{
+ "n_hh_quarters": 96000,
+ "share_repaying": 28.0,
+ "share_newloan": 5.9,
+ "dsr_median_repayers": 15.5,
+ "repayers_dsr_gt50": 14.4,
+ "repayers_dsr_gt30": 27.5,
+ "by_quintile": [
+  {
+   "quintile": 1,
+   "repaying": 27.7,
+   "dsr_med_repayers": 30.9,
+   "dsr_gt50_of_repayers": 33.1,
+   "newloan": 6.4,
+   "essential_of_newloans": 13.9,
+   "informal_of_newloans": 13.8,
+   "life_sat": 7.68
+  },
+  {
+   "quintile": 2,
+   "repaying": 31.0,
+   "dsr_med_repayers": 17.7,
+   "dsr_gt50_of_repayers": 14.7,
+   "newloan": 6.7,
+   "essential_of_newloans": 15.2,
+   "informal_of_newloans": 13.9,
+   "life_sat": 7.63
+  },
+  {
+   "quintile": 3,
+   "repaying": 28.4,
+   "dsr_med_repayers": 15.0,
+   "dsr_gt50_of_repayers": 11.5,
+   "newloan": 5.9,
+   "essential_of_newloans": 15.9,
+   "informal_of_newloans": 15.2,
+   "life_sat": 7.58
+  },
+  {
+   "quintile": 4,
+   "repaying": 27.6,
+   "dsr_med_repayers": 12.3,
+   "dsr_gt50_of_repayers": 8.0,
+   "newloan": 5.8,
+   "essential_of_newloans": 13.8,
+   "informal_of_newloans": 16.1,
+   "life_sat": 7.53
+  },
+  {
+   "quintile": 5,
+   "repaying": 25.5,
+   "dsr_med_repayers": 8.9,
+   "dsr_gt50_of_repayers": 4.1,
+   "newloan": 4.8,
+   "essential_of_newloans": 15.6,
+   "informal_of_newloans": 14.1,
+   "life_sat": 7.46
+  }
+ ],
+ "by_urban": [
+  {
+   "urban": false,
+   "repaying": 29.1,
+   "newloan": 5.7,
+   "essential_of_newloans": 15.0,
+   "informal_of_newloans": 14.8,
+   "dsr_gt50_of_repayers": 12.7
+  },
+  {
+   "urban": true,
+   "repaying": 27.1,
+   "newloan": 6.1,
+   "essential_of_newloans": 14.7,
+   "informal_of_newloans": 14.4,
+   "dsr_gt50_of_repayers": 15.9
+  }
+ ],
+ "purpose_dist": {
+  "Consumer durables": 51.1,
+  "Other": 24.6,
+  "Food": 9.7,
+  "Build house": 4.6,
+  "Health/medicine": 3.6,
+  "Buy housing/land": 2.9,
+  "Education": 2.2,
+  "Utility arrears": 1.0,
+  "Start business": 0.3
+ },
+ "source_dist": {
+  "Commercial bank": 71.8,
+  "Private person": 13.5,
+  "Microcredit org.": 7.7,
+  "Other": 4.8,
+  "Pawnshop": 1.8,
+  "Edu. fin. centre": 0.3,
+  "SME fund": 0.1,
+  "Intl. org.": 0.0
+ },
+ "H1_dsr_q1_vs_q5": {
+  "Q2": {
+   "coef": -0.223,
+   "p": 0.0
+  },
+  "Q3": {
+   "coef": -0.268,
+   "p": 0.0
+  },
+  "Q4": {
+   "coef": -0.313,
+   "p": 0.0
+  },
+  "Q5": {
+   "coef": -0.374,
+   "p": 0.0
+  },
+  "rural_vs_urban(urban coef)": {
+   "coef": 0.025,
+   "p": 0.0
+  }
+ },
+ "H2_essential_logit": {
+  "Q5": {
+   "coef": 0.134,
+   "p": 0.2749
+  },
+  "urban": {
+   "coef": -0.021,
+   "p": 0.7807
+  }
+ },
+ "H3_informal_given_essential": {
+  "ess": {
+   "coef": 1.263,
+   "p": 0.0
+  },
+  "OR": 3.54
+ },
+ "H4_lifesat_dsr50": {
+  "dsr_hi": {
+   "coef": -0.028,
+   "p": 0.2609
+  },
+  "has_repay": {
+   "coef": 0.01,
+   "p": 0.5244
+  }
+ },
+ "sim": {
+  "50": {
+   "blocked_share_of_regulated_newloans": 11.2,
+   "blocked_hh_share_of_all_hh": 0.5,
+   "blocked_essential_share": 15.0,
+   "blocked_durables_share": 48.8,
+   "blocked_by_quintile": {
+    "1": 25.4,
+    "2": 11.4,
+    "3": 8.5,
+    "4": 5.6,
+    "5": 2.7
+   },
+   "blocked_by_urban": {
+    "false": 9.5,
+    "true": 12.5
+   },
+   "blocked_by_region": {
+    "Aktobe": 22.7,
+    "Akmola": 18.4,
+    "Shymkent": 17.4,
+    "Astana": 15.0,
+    "Zhambyl": 15.0,
+    "Zhetisu": 14.0,
+    "Karaganda": 13.6,
+    "Kyzylorda": 13.5,
+    "West Kaz.": 11.6,
+    "Turkistan": 10.2,
+    "Almaty city": 10.1,
+    "Atyrau": 9.0,
+    "Kostanay": 8.4,
+    "Ulytau": 8.4,
+    "Abai": 7.4,
+    "East Kaz.": 7.3,
+    "Mangystau": 7.1,
+    "North Kaz.": 5.7,
+    "Pavlodar": 5.3,
+    "Almaty obl.": 4.8
+   },
+   "blocked_newloan_volume_share": 8.4,
+   "blocked_durables_volume_kzt_per_quarter": 10271153
+  },
+  "40": {
+   "blocked_share_of_regulated_newloans": 14.5,
+   "blocked_hh_share_of_all_hh": 0.65,
+   "blocked_essential_share": 14.6,
+   "blocked_durables_share": 50.1,
+   "blocked_by_quintile": {
+    "1": 30.1,
+    "2": 15.4,
+    "3": 11.6,
+    "4": 8.5,
+    "5": 4.4
+   },
+   "blocked_by_urban": {
+    "false": 13.1,
+    "true": 15.6
+   },
+   "blocked_by_region": {
+    "Aktobe": 26.8,
+    "Akmola": 24.5,
+    "Astana": 19.8,
+    "Kyzylorda": 18.8,
+    "Karaganda": 17.7,
+    "Shymkent": 17.4,
+    "Zhambyl": 17.3,
+    "Zhetisu": 16.7,
+    "West Kaz.": 14.3,
+    "Turkistan": 13.4,
+    "Ulytau": 12.3,
+    "Kostanay": 11.9,
+    "Atyrau": 11.8,
+    "Almaty city": 11.5,
+    "Abai": 10.8,
+    "North Kaz.": 8.5,
+    "East Kaz.": 8.2,
+    "Pavlodar": 7.6,
+    "Almaty obl.": 7.2,
+    "Mangystau": 7.1
+   },
+   "blocked_newloan_volume_share": 10.7,
+   "blocked_durables_volume_kzt_per_quarter": 12750684
+  },
+  "30": {
+   "blocked_share_of_regulated_newloans": 19.4,
+   "blocked_hh_share_of_all_hh": 0.86,
+   "blocked_essential_share": 14.9,
+   "blocked_durables_share": 51.1,
+   "blocked_by_quintile": {
+    "1": 34.5,
+    "2": 22.0,
+    "3": 15.4,
+    "4": 13.5,
+    "5": 8.5
+   },
+   "blocked_by_urban": {
+    "false": 18.0,
+    "true": 20.4
+   },
+   "blocked_by_region": {
+    "Akmola": 32.3,
+    "Aktobe": 31.4,
+    "Astana": 24.9,
+    "Kyzylorda": 22.9,
+    "Zhetisu": 22.2,
+    "Karaganda": 22.1,
+    "Zhambyl": 21.3,
+    "West Kaz.": 20.5,
+    "Shymkent": 17.4,
+    "Atyrau": 17.4,
+    "Turkistan": 17.1,
+    "Ulytau": 17.1,
+    "Kostanay": 15.7,
+    "East Kaz.": 15.5,
+    "Pavlodar": 15.0,
+    "Abai": 14.3,
+    "Almaty city": 14.2,
+    "North Kaz.": 11.8,
+    "Mangystau": 10.7,
+    "Almaty obl.": 10.4
+   },
+   "blocked_newloan_volume_share": 14.5,
+   "blocked_durables_volume_kzt_per_quarter": 17424629
+  }
+ },
+ "regulated_newloans_dsr_gt50_now": 11.2,
+ "n_regulated_newloans": 4284,
+ "regions": [
+  {
+   "region": "Abai",
+   "TE": "10",
+   "hh_q": 3996,
+   "repaying": 27.7,
+   "dsr_gt50_of_repayers": 10.3,
+   "newloan": 6.0,
+   "essential_of_newloans": 4.6,
+   "informal_of_newloans": 9.6,
+   "income_pc_med": 314423,
+   "life_sat": 7.25
+  },
+  {
+   "region": "Akmola",
+   "TE": "11",
+   "hh_q": 5992,
+   "repaying": 34.0,
+   "dsr_gt50_of_repayers": 18.9,
+   "newloan": 6.2,
+   "essential_of_newloans": 11.9,
+   "informal_of_newloans": 13.7,
+   "income_pc_med": 331000,
+   "life_sat": 7.25
+  },
+  {
+   "region": "Aktobe",
+   "TE": "15",
+   "hh_q": 5628,
+   "repaying": 32.0,
+   "dsr_gt50_of_repayers": 20.0,
+   "newloan": 8.8,
+   "essential_of_newloans": 67.5,
+   "informal_of_newloans": 56.0,
+   "income_pc_med": 289394,
+   "life_sat": 7.01
+  },
+  {
+   "region": "Almaty city",
+   "TE": "75",
+   "hh_q": 5784,
+   "repaying": 14.2,
+   "dsr_gt50_of_repayers": 15.2,
+   "newloan": 6.6,
+   "essential_of_newloans": 11.5,
+   "informal_of_newloans": 6.8,
+   "income_pc_med": 332833,
+   "life_sat": 6.7
+  },
+  {
+   "region": "Almaty obl.",
+   "TE": "19",
+   "hh_q": 3820,
+   "repaying": 28.4,
+   "dsr_gt50_of_repayers": 7.7,
+   "newloan": 4.2,
+   "essential_of_newloans": 11.9,
+   "informal_of_newloans": 10.0,
+   "income_pc_med": 295823,
+   "life_sat": 7.57
+  },
+  {
+   "region": "Astana",
+   "TE": "71",
+   "hh_q": 4680,
+   "repaying": 31.1,
+   "dsr_gt50_of_repayers": 20.4,
+   "newloan": 7.1,
+   "essential_of_newloans": 10.2,
+   "informal_of_newloans": 9.6,
+   "income_pc_med": 317399,
+   "life_sat": 7.61
+  },
+  {
+   "region": "Atyrau",
+   "TE": "23",
+   "hh_q": 4120,
+   "repaying": 37.7,
+   "dsr_gt50_of_repayers": 11.7,
+   "newloan": 4.5,
+   "essential_of_newloans": 8.0,
+   "informal_of_newloans": 4.8,
+   "income_pc_med": 273207,
+   "life_sat": 7.73
+  },
+  {
+   "region": "East Kaz.",
+   "TE": "63",
+   "hh_q": 4068,
+   "repaying": 19.7,
+   "dsr_gt50_of_repayers": 13.4,
+   "newloan": 3.3,
+   "essential_of_newloans": 11.9,
+   "informal_of_newloans": 7.4,
+   "income_pc_med": 364000,
+   "life_sat": 7.24
+  },
+  {
+   "region": "Karaganda",
+   "TE": "35",
+   "hh_q": 4940,
+   "repaying": 39.7,
+   "dsr_gt50_of_repayers": 16.5,
+   "newloan": 8.7,
+   "essential_of_newloans": 21.7,
+   "informal_of_newloans": 17.2,
+   "income_pc_med": 335083,
+   "life_sat": 6.96
+  },
+  {
+   "region": "Kostanay",
+   "TE": "39",
+   "hh_q": 6308,
+   "repaying": 28.7,
+   "dsr_gt50_of_repayers": 9.1,
+   "newloan": 5.5,
+   "essential_of_newloans": 9.1,
+   "informal_of_newloans": 12.6,
+   "income_pc_med": 365855,
+   "life_sat": 7.2
+  },
+  {
+   "region": "Kyzylorda",
+   "TE": "43",
+   "hh_q": 4688,
+   "repaying": 42.3,
+   "dsr_gt50_of_repayers": 14.0,
+   "newloan": 5.4,
+   "essential_of_newloans": 10.8,
+   "informal_of_newloans": 11.6,
+   "income_pc_med": 241960,
+   "life_sat": 8.15
+  },
+  {
+   "region": "Mangystau",
+   "TE": "47",
+   "hh_q": 4412,
+   "repaying": 5.1,
+   "dsr_gt50_of_repayers": 4.9,
+   "newloan": 0.9,
+   "essential_of_newloans": 5.0,
+   "informal_of_newloans": 12.5,
+   "income_pc_med": 276000,
+   "life_sat": 8.44
+  },
+  {
+   "region": "North Kaz.",
+   "TE": "59",
+   "hh_q": 5128,
+   "repaying": 27.2,
+   "dsr_gt50_of_repayers": 10.5,
+   "newloan": 6.2,
+   "essential_of_newloans": 13.2,
+   "informal_of_newloans": 18.0,
+   "income_pc_med": 341696,
+   "life_sat": 6.91
+  },
+  {
+   "region": "Pavlodar",
+   "TE": "55",
+   "hh_q": 6468,
+   "repaying": 33.0,
+   "dsr_gt50_of_repayers": 10.9,
+   "newloan": 5.5,
+   "essential_of_newloans": 2.8,
+   "informal_of_newloans": 10.7,
+   "income_pc_med": 326971,
+   "life_sat": 7.89
+  },
+  {
+   "region": "Shymkent",
+   "TE": "79",
+   "hh_q": 3840,
+   "repaying": 8.6,
+   "dsr_gt50_of_repayers": 22.5,
+   "newloan": 1.1,
+   "essential_of_newloans": 2.3,
+   "informal_of_newloans": 38.6,
+   "income_pc_med": 247554,
+   "life_sat": 7.95
+  },
+  {
+   "region": "Turkistan",
+   "TE": "61",
+   "hh_q": 4792,
+   "repaying": 14.6,
+   "dsr_gt50_of_repayers": 13.8,
+   "newloan": 5.3,
+   "essential_of_newloans": 3.5,
+   "informal_of_newloans": 1.6,
+   "income_pc_med": 222333,
+   "life_sat": 7.95
+  },
+  {
+   "region": "Ulytau",
+   "TE": "62",
+   "hh_q": 3212,
+   "repaying": 54.0,
+   "dsr_gt50_of_repayers": 17.6,
+   "newloan": 14.5,
+   "essential_of_newloans": 8.0,
+   "informal_of_newloans": 7.1,
+   "income_pc_med": 284786,
+   "life_sat": 8.35
+  },
+  {
+   "region": "West Kaz.",
+   "TE": "27",
+   "hh_q": 5272,
+   "repaying": 35.5,
+   "dsr_gt50_of_repayers": 13.4,
+   "newloan": 6.4,
+   "essential_of_newloans": 8.6,
+   "informal_of_newloans": 13.4,
+   "income_pc_med": 284050,
+   "life_sat": 8.0
+  },
+  {
+   "region": "Zhambyl",
+   "TE": "31",
+   "hh_q": 5124,
+   "repaying": 14.2,
+   "dsr_gt50_of_repayers": 14.2,
+   "newloan": 3.1,
+   "essential_of_newloans": 4.4,
+   "informal_of_newloans": 6.2,
+   "income_pc_med": 246424,
+   "life_sat": 8.25
+  },
+  {
+   "region": "Zhetisu",
+   "TE": "33",
+   "hh_q": 3728,
+   "repaying": 36.9,
+   "dsr_gt50_of_repayers": 16.7,
+   "newloan": 10.2,
+   "essential_of_newloans": 9.9,
+   "informal_of_newloans": 7.6,
+   "income_pc_med": 256313,
+   "life_sat": 7.91
+  }
+ ],
+ "labour_by_TE": [
+  {
+   "TE": "10",
+   "emp_rate": 79.9,
+   "no_contract_of_employees": 0.4,
+   "searching": 4.7
+  },
+  {
+   "TE": "11",
+   "emp_rate": 79.4,
+   "no_contract_of_employees": 0.4,
+   "searching": 4.0
+  },
+  {
+   "TE": "15",
+   "emp_rate": 78.5,
+   "no_contract_of_employees": 0.5,
+   "searching": 4.7
+  },
+  {
+   "TE": "19",
+   "emp_rate": 77.2,
+   "no_contract_of_employees": 0.5,
+   "searching": 4.2
+  },
+  {
+   "TE": "23",
+   "emp_rate": 79.2,
+   "no_contract_of_employees": 0.5,
+   "searching": 4.4
+  },
+  {
+   "TE": "27",
+   "emp_rate": 79.8,
+   "no_contract_of_employees": 0.5,
+   "searching": 4.6
+  },
+  {
+   "TE": "31",
+   "emp_rate": 75.3,
+   "no_contract_of_employees": 0.5,
+   "searching": 3.4
+  },
+  {
+   "TE": "33",
+   "emp_rate": 72.7,
+   "no_contract_of_employees": 0.3,
+   "searching": 4.5
+  },
+  {
+   "TE": "35",
+   "emp_rate": 76.0,
+   "no_contract_of_employees": 0.5,
+   "searching": 3.4
+  },
+  {
+   "TE": "39",
+   "emp_rate": 79.6,
+   "no_contract_of_employees": 0.5,
+   "searching": 4.1
+  },
+  {
+   "TE": "43",
+   "emp_rate": 66.2,
+   "no_contract_of_employees": 0.4,
+   "searching": 3.9
+  },
+  {
+   "TE": "47",
+   "emp_rate": 71.1,
+   "no_contract_of_employees": 0.5,
+   "searching": 4.8
+  },
+  {
+   "TE": "55",
+   "emp_rate": 81.2,
+   "no_contract_of_employees": 0.4,
+   "searching": 4.8
+  },
+  {
+   "TE": "59",
+   "emp_rate": 79.1,
+   "no_contract_of_employees": 0.5,
+   "searching": 3.8
+  },
+  {
+   "TE": "61",
+   "emp_rate": 68.6,
+   "no_contract_of_employees": 0.3,
+   "searching": 4.9
+  },
+  {
+   "TE": "62",
+   "emp_rate": 74.3,
+   "no_contract_of_employees": 0.5,
+   "searching": 3.7
+  },
+  {
+   "TE": "63",
+   "emp_rate": 79.6,
+   "no_contract_of_employees": 0.4,
+   "searching": 4.1
+  },
+  {
+   "TE": "71",
+   "emp_rate": 75.6,
+   "no_contract_of_employees": 0.4,
+   "searching": 3.0
+  },
+  {
+   "TE": "75",
+   "emp_rate": 75.3,
+   "no_contract_of_employees": 0.4,
+   "searching": 3.6
+  },
+  {
+   "TE": "79",
+   "emp_rate": 66.9,
+   "no_contract_of_employees": 0.5,
+   "searching": 4.2
+  }
+ ],
+ "grid": {
+  "20": {
+   "blocked": 28.8,
+   "q": [
+    44.1,
+    32.6,
+    24.6,
+    21.5,
+    18.0
+   ],
+   "urban": 30.3,
+   "rural": 26.8,
+   "ess": 13.5,
+   "dur": 52.5,
+   "vol": 22.8,
+   "region": {
+    "10": 19.7,
+    "11": 41.8,
+    "15": 40.2,
+    "19": 20.0,
+    "23": 28.5,
+    "27": 27.8,
+    "31": 25.2,
+    "33": 34.1,
+    "35": 31.5,
+    "39": 21.7,
+    "43": 37.1,
+    "47": 25.0,
+    "55": 24.9,
+    "59": 22.4,
+    "61": 25.5,
+    "62": 27.1,
+    "63": 30.0,
+    "71": 34.8,
+    "75": 24.0,
+    "79": 26.1
+   }
+  },
+  "25": {
+   "blocked": 23.6,
+   "q": [
+    39.1,
+    25.8,
+    19.9,
+    17.9,
+    12.4
+   ],
+   "urban": 24.8,
+   "rural": 22.1,
+   "ess": 14.0,
+   "dur": 52.4,
+   "vol": 18.7,
+   "region": {
+    "10": 16.7,
+    "11": 39.0,
+    "15": 36.6,
+    "19": 14.4,
+    "23": 22.9,
+    "27": 23.9,
+    "31": 23.6,
+    "33": 28.0,
+    "35": 25.2,
+    "39": 18.5,
+    "43": 30.6,
+    "47": 17.9,
+    "55": 19.6,
+    "59": 16.3,
+    "61": 17.6,
+    "62": 21.2,
+    "63": 20.9,
+    "71": 29.3,
+    "75": 18.6,
+    "79": 21.7
+   }
+  },
+  "30": {
+   "blocked": 19.4,
+   "q": [
+    34.5,
+    22.0,
+    15.4,
+    13.5,
+    8.5
+   ],
+   "urban": 20.4,
+   "rural": 18.0,
+   "ess": 14.9,
+   "dur": 51.1,
+   "vol": 14.5,
+   "region": {
+    "10": 14.3,
+    "11": 32.3,
+    "15": 31.4,
+    "19": 10.4,
+    "23": 17.4,
+    "27": 20.5,
+    "31": 21.3,
+    "33": 22.2,
+    "35": 22.1,
+    "39": 15.7,
+    "43": 22.9,
+    "47": 10.7,
+    "55": 15.0,
+    "59": 11.8,
+    "61": 17.1,
+    "62": 17.1,
+    "63": 15.5,
+    "71": 24.9,
+    "75": 14.2,
+    "79": 17.4
+   }
+  },
+  "35": {
+   "blocked": 16.7,
+   "q": [
+    32.2,
+    18.3,
+    13.5,
+    10.6,
+    5.7
+   ],
+   "urban": 17.5,
+   "rural": 15.5,
+   "ess": 15.1,
+   "dur": 50.3,
+   "vol": 12.3,
+   "region": {
+    "10": 11.8,
+    "11": 28.0,
+    "15": 28.9,
+    "19": 8.0,
+    "23": 13.2,
+    "27": 17.8,
+    "31": 20.5,
+    "33": 19.5,
+    "35": 19.9,
+    "39": 14.3,
+    "43": 21.2,
+    "47": 10.7,
+    "55": 11.0,
+    "59": 10.2,
+    "61": 13.9,
+    "62": 14.3,
+    "63": 11.8,
+    "71": 20.9,
+    "75": 12.2,
+    "79": 17.4
+   }
+  },
+  "40": {
+   "blocked": 14.5,
+   "q": [
+    30.1,
+    15.4,
+    11.6,
+    8.5,
+    4.4
+   ],
+   "urban": 15.6,
+   "rural": 13.1,
+   "ess": 14.6,
+   "dur": 50.1,
+   "vol": 10.7,
+   "region": {
+    "10": 10.8,
+    "11": 24.5,
+    "15": 26.8,
+    "19": 7.2,
+    "23": 11.8,
+    "27": 14.3,
+    "31": 17.3,
+    "33": 16.7,
+    "35": 17.7,
+    "39": 11.9,
+    "43": 18.8,
+    "47": 7.1,
+    "55": 7.6,
+    "59": 8.5,
+    "61": 13.4,
+    "62": 12.3,
+    "63": 8.2,
+    "71": 19.8,
+    "75": 11.5,
+    "79": 17.4
+   }
+  },
+  "45": {
+   "blocked": 12.8,
+   "q": [
+    27.8,
+    13.5,
+    9.8,
+    6.8,
+    3.5
+   ],
+   "urban": 14.2,
+   "rural": 11.1,
+   "ess": 15.3,
+   "dur": 49.5,
+   "vol": 9.8,
+   "region": {
+    "10": 8.4,
+    "11": 21.3,
+    "15": 25.8,
+    "19": 4.8,
+    "23": 11.1,
+    "27": 12.7,
+    "31": 16.5,
+    "33": 16.0,
+    "35": 15.8,
+    "39": 10.1,
+    "43": 17.1,
+    "47": 7.1,
+    "55": 6.0,
+    "59": 6.9,
+    "61": 10.6,
+    "62": 10.5,
+    "63": 7.3,
+    "71": 17.2,
+    "75": 10.5,
+    "79": 17.4
+   }
+  },
+  "50": {
+   "blocked": 11.2,
+   "q": [
+    25.4,
+    11.4,
+    8.5,
+    5.6,
+    2.7
+   ],
+   "urban": 12.5,
+   "rural": 9.5,
+   "ess": 15.0,
+   "dur": 48.8,
+   "vol": 8.4,
+   "region": {
+    "10": 7.4,
+    "11": 18.4,
+    "15": 22.7,
+    "19": 4.8,
+    "23": 9.0,
+    "27": 11.6,
+    "31": 15.0,
+    "33": 14.0,
+    "35": 13.6,
+    "39": 8.4,
+    "43": 13.5,
+    "47": 7.1,
+    "55": 5.3,
+    "59": 5.7,
+    "61": 10.2,
+    "62": 8.4,
+    "63": 7.3,
+    "71": 15.0,
+    "75": 10.1,
+    "79": 17.4
+   }
+  },
+  "55": {
+   "blocked": 10.0,
+   "q": [
+    24.0,
+    9.9,
+    7.2,
+    4.5,
+    2.3
+   ],
+   "urban": 11.3,
+   "rural": 8.3,
+   "ess": 15.4,
+   "dur": 48.5,
+   "vol": 7.3,
+   "region": {
+    "10": 6.9,
+    "11": 16.7,
+    "15": 20.6,
+    "19": 4.8,
+    "23": 9.0,
+    "27": 10.0,
+    "31": 13.4,
+    "33": 12.6,
+    "35": 12.6,
+    "39": 8.0,
+    "43": 12.4,
+    "47": 7.1,
+    "55": 3.7,
+    "59": 5.3,
+    "61": 8.8,
+    "62": 7.2,
+    "63": 6.4,
+    "71": 12.5,
+    "75": 9.1,
+    "79": 17.4
+   }
+  },
+  "60": {
+   "blocked": 8.6,
+   "q": [
+    21.0,
+    8.5,
+    6.4,
+    3.6,
+    1.4
+   ],
+   "urban": 9.9,
+   "rural": 6.9,
+   "ess": 15.5,
+   "dur": 49.2,
+   "vol": 6.5,
+   "region": {
+    "10": 6.4,
+    "11": 13.8,
+    "15": 19.1,
+    "19": 3.2,
+    "23": 8.3,
+    "27": 8.1,
+    "31": 10.2,
+    "33": 10.6,
+    "35": 10.7,
+    "39": 7.3,
+    "43": 10.0,
+    "47": 7.1,
+    "55": 2.3,
+    "59": 4.9,
+    "61": 5.6,
+    "62": 6.4,
+    "63": 6.4,
+    "71": 11.7,
+    "75": 8.4,
+    "79": 17.4
+   }
+  },
+  "65": {
+   "blocked": 7.7,
+   "q": [
+    19.8,
+    7.1,
+    5.7,
+    3.0,
+    1.4
+   ],
+   "urban": 8.9,
+   "rural": 6.2,
+   "ess": 15.4,
+   "dur": 49.1,
+   "vol": 6.0,
+   "region": {
+    "10": 5.4,
+    "11": 12.8,
+    "15": 17.0,
+    "19": 1.6,
+    "23": 7.6,
+    "27": 6.9,
+    "31": 10.2,
+    "33": 9.9,
+    "35": 9.8,
+    "39": 6.6,
+    "43": 8.8,
+    "47": 3.6,
+    "55": 2.3,
+    "59": 4.9,
+    "61": 5.1,
+    "62": 5.4,
+    "63": 6.4,
+    "71": 9.9,
+    "75": 8.1,
+    "79": 17.4
+   }
+  },
+  "70": {
+   "blocked": 7.1,
+   "q": [
+    18.2,
+    6.2,
+    5.4,
+    2.6,
+    1.3
+   ],
+   "urban": 8.1,
+   "rural": 5.7,
+   "ess": 15.2,
+   "dur": 49.5,
+   "vol": 5.4,
+   "region": {
+    "10": 4.4,
+    "11": 11.7,
+    "15": 15.5,
+    "19": 0.8,
+    "23": 6.9,
+    "27": 6.9,
+    "31": 9.4,
+    "33": 8.2,
+    "35": 9.1,
+    "39": 5.9,
+    "43": 7.6,
+    "47": 3.6,
+    "55": 1.7,
+    "59": 4.9,
+    "61": 5.1,
+    "62": 5.1,
+    "63": 5.5,
+    "71": 8.8,
+    "75": 8.1,
+    "79": 17.4
+   }
+  }
+ }
+}
