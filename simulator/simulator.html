@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Симулятор КДН</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Ubuntu+Mono&display=swap">
@@ -13,7 +17,7 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;padding-inline:20px;padding-block:24px 40px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;padding-inline:20px;padding-block:24px 40px}
 .wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
 header{display:flex;flex-direction:column;gap:6px}
 .eyebrow{font-size:13px;color:var(--violet);font-weight:500}
@@ -64,7 +68,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--violet);outline
 .foot{font-size:12.5px;color:var(--muted);max-width:90ch}
 @media (prefers-reduced-motion: reduce){.fill{transition:none}}
 </style>
-
+</head>
+<body>
 <div class="wrap">
   <header>
     <span class="eyebrow">STAT.DATATHON-2026 · Команда STAR</span>
@@ -170,7 +175,7 @@ function render(){
   const t1=REG[top[0][0]][0], tl=REG[top[top.length-1][0]][0];
   const items=[
     ["Домохозяйства","var(--violet)",`У беднейшей пятой части блокируется ${pct(r.qs[0])} займов, у богатейшей ${pct(r.qs[4])}.`],
-    ["Социальная уязвимость","var(--magenta)",`Блокируется ${r.essN} из ${r.essTot} займов на еду, лечение и долги за ЖКУ. Такие заемщики в 3,5 раза чаще идут к частным лицам и в ломбарды.`],
+    ["Социальная уязвимость","var(--magenta)",`Блокируется ${r.essN} из ${r.essTot} займов на еду, лечение и долги за ЖКУ. У таких заемщиков шансы обратиться к частным лицам и в ломбарды в 3,5 раза выше.`],
     ["Торговля","var(--amber)",`Кредит на товары длительного пользования сокращается на ${pct(r.dur)} по объему.`],
     ["Регионы","var(--teal)",`Больше всего блокировок: ${t1} (${pct(top[0][1])}); меньше всего: ${tl} (${pct(top[top.length-1][1])}).`]
   ];
