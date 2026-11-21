@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Credit limit: who loses? A household microsimulation of Kazakhstan's debt-service limit"
+abstract: "Team STAR, STAT.DATATHON-2026, Data to Policy track, 1st place. Household-level microsimulation of flat and targeted consumer-credit debt-service limits on the synthetic D-004 household survey (2023-2024)."
+authors:
+  - family-names: Jafarli
+    given-names: Isgandar
+    affiliation: "ADA University, School of IT and Engineering, Baku, Azerbaijan"
+  - family-names: Sadigova
+    given-names: Nazpari
+    affiliation: "Lomonosov Moscow State University, Faculty of Management, Baku, Azerbaijan"
+  - family-names: Imanov
+    given-names: Yunus
+    affiliation: "University of Helsinki, Department of Mathematics and Statistics, Helsinki, Finland"
+date-released: 2026-10-20
+license: MIT
+repository-code: "https://github.com/olaflaitinen/star-credit-limit-microsim"
+url: "https://olaflaitinen.github.io/star-credit-limit-microsim/"
+keywords:
+  - microsimulation
+  - household finance
+  - debt-service ratio
+  - macroprudential policy
+  - Kazakhstan
