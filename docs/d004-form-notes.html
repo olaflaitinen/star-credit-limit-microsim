@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Form D-004: reading the tables</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Form D-004: reading the tables</h1>
+<h3 class="subtitle">Notes on kv_vopr12, NOMVOPR and the GR columns</h3>
+
+
+
+<style>
+body { max-width: 46rem; margin: 3rem auto; padding: 0 1.25rem 4rem;
+font: 16px/1.6 Georgia, "Times New Roman", serif; color: #1a1a1a;
+background: #fbfbf9; }
+h1 { font-size: 1.7rem; margin: 0 0 .2rem; }
+h1.title { margin-bottom: .2rem; }
+h2 { font-size: 1.15rem; margin: 2.2rem 0 .6rem; padding-bottom: .25rem;
+border-bottom: 1px solid #d8d8d2; }
+.subtitle { color: #5b5b5b; font-style: italic; margin: 0 0 2rem; font-size: 1rem; }
+table { border-collapse: collapse; width: 100%; margin: .8rem 0; font-size: .92rem; }
+th, td { text-align: left; padding: .35rem .6rem; border-bottom: 1px solid #d8d8d2; }
+code { font: .88em ui-monospace, Menlo, Consolas, monospace; background: #efefe9;
+padding: .08em .3em; border-radius: 3px; }
+blockquote { border-left: 3px solid #8a4b00; background: #fdf6ee; margin: 1rem 0;
+padding: .7rem 1rem; color: #8a4b00; font-weight: 600; }
+blockquote p { margin: 0; }
+@media print { body { background: #fff; margin: 0; } }
+</style>
+<p>Answers to the questions that came in about <code>kv_vopr12</code>.
+Counts are from the synthetic files you have, so they reproduce.</p>
+<div id="the-form" class="section level2">
+<h2>The form</h2>
+<p>Quarterly household budget survey. Twelve tables per quarter:
+<code>kv_vopr0</code>-<code>kv_vopr7</code>,
+<code>kv_vopr9</code>-<code>kv_vopr12</code>, there is no
+<code>kv_vopr8</code>. They are at
+<code>d004/&lt;year&gt;/&lt;quarter&gt;/&lt;table&gt;.csv</code>. All
+join on <code>NOMER</code>, the household code. <code>kv_vopr0</code>
+has one row per household, the rest have zero or more.</p>
+</div>
+<div id="nomvopr-is-the-question-number-inside-a-table" class="section level2">
+<h2>NOMVOPR is the question number inside a table</h2>
+<p>Most tables hold several questions. The number is the table’s own
+number plus the question’s index within it.</p>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="38%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>table</th>
+<th>topic</th>
+<th><code>NOMVOPR</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>kv_vopr0</code>, <code>kv_vopr1</code></td>
+<td>header, non-food goods</td>
+<td>no such column</td>
+</tr>
+<tr class="even">
+<td><code>kv_vopr2</code></td>
+<td>utilities</td>
+<td><code>21</code></td>
+</tr>
+<tr class="odd">
+<td><code>kv_vopr3</code></td>
+<td>communications</td>
+<td><code>31</code></td>
+</tr>
+<tr class="even">
+<td><code>kv_vopr4</code></td>
+<td>education</td>
+<td><code>41</code></td>
+</tr>
+<tr class="odd">
+<td><code>kv_vopr5</code></td>
+<td>health</td>
+<td><code>51</code></td>
+</tr>
+<tr class="even">
+<td><code>kv_vopr6</code></td>
+<td>personal services, leisure, other financial</td>
+<td><code>60</code>, <code>61</code>, <code>62</code></td>
+</tr>
+<tr class="odd">
+<td><code>kv_vopr7</code></td>
+<td>transport</td>
+<td><code>71</code></td>
+</tr>
+<tr class="even">
+<td><code>kv_vopr9</code></td>
+<td>production, section 4</td>
+<td><code>91</code>-<code>99</code>, <code>913</code>,
+<code>914</code></td>
+</tr>
+<tr class="odd">
+<td><code>kv_vopr10</code></td>
+<td>production, section 4</td>
+<td><code>101</code>, <code>102</code></td>
+</tr>
+<tr class="even">
+<td><code>kv_vopr11</code></td>
+<td>income, section 3</td>
+<td><code>111</code></td>
+</tr>
+<tr class="odd">
+<td><code>kv_vopr12</code></td>
+<td>borrowed funds, section 2</td>
+<td><code>200</code>, <code>1211</code>, <code>1212</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The number is unique only inside its own table. <code>41</code> is
+the only value in <code>kv_vopr4</code> and also one of
+<code>kv_vopr9</code>’s questions.</p>
+</blockquote>
+</div>
+<div id="gr1-gr2-are-column-numbers-on-the-paper-form" class="section level2">
+<h2>GR1, GR2 … are column numbers on the paper form</h2>
+<p>“Графа” means a column of the printed questionnaire. The field name
+says where on the page the value came from, not what it measures, so the
+same name means different things in different tables: in
+<code>kv_vopr9</code> <code>GR1</code> is cost, in
+<code>kv_vopr11</code> <code>GR1</code>-<code>GR23</code> are 23 income
+types “in form order”. To decode a <code>GRn</code>, open that table’s
+page in the questionnaire.</p>
+</div>
+<div id="kv_vopr12-three-kinds-of-row" class="section level2">
+<h2>kv_vopr12: three kinds of row</h2>
+<p>2021-2023 have 9 columns; 2024 adds <code>NOMVOPR</code>,
+<code>NOMOTV</code> and <code>GR1</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th><code>NOMVOPR</code></th>
+<th><code>NOMVNEW</code></th>
+<th>the row is</th>
+<th>filled</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td><code>20</code></td>
+<td>one of six borrowed-funds items</td>
+<td><code>KODNU</code>, <code>STOIMK</code></td>
+</tr>
+<tr class="even">
+<td><code>1211</code></td>
+<td><code>21</code></td>
+<td>answer to question 2.1, purpose</td>
+<td><code>KOD</code></td>
+</tr>
+<tr class="odd">
+<td><code>1212</code></td>
+<td><code>22</code></td>
+<td>answer to question 2.2, source</td>
+<td><code>KOD</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>KOD</code> and <code>KODNU</code> never both appear. Rows 1211
+and 1212 carry no amount. <code>KODNU</code>’s six items are decoded in
+<code>documentation/d004/2023/коды/kv_vopr12_Заемные средства.xls</code>.</p>
+<div id="kod-holds-answers-to-two-different-questions" class="section level3">
+<h3>KOD holds answers to two different questions</h3>
+<p>That is the whole answer to “why 9 codes”. The column pools two
+questions, each with <strong>nine</strong> options, and the ninth is
+“Other” in both.</p>
+<p>Question 2.1, “what was the loan taken for”: rows
+<code>NOMVOPR = 1211</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>code</th>
+<th>answer</th>
+<th>rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Building a house</td>
+<td>463</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Buying a house, flat, dacha or land</td>
+<td>350</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Food</td>
+<td>1 141</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Starting a business</td>
+<td>51</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Education</td>
+<td>235</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Consumer durables</td>
+<td>6 195</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Healthcare and medicines</td>
+<td>458</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Paying off utility arrears</td>
+<td>120</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Other</td>
+<td>2 497</td>
+</tr>
+</tbody>
+</table>
+<p>Question 2.2, “where the loan came from”: rows
+<code>NOMVOPR = 1212</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>code</th>
+<th>answer</th>
+<th>rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Microcredit organisations</td>
+<td>747</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Commercial bank</td>
+<td>7 793</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Small business development fund</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Non-governmental organisations</td>
+<td>never occurs</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>International organisations</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Financial Centre of the Ministry of Education and Science</td>
+<td>42</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Private person</td>
+<td>1 662</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Pawnshop</td>
+<td>179</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Other</td>
+<td>352</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Counting <code>KOD</code> without splitting on <code>NOMVOPR</code>
+is meaningless: code 2 is “buying a house” in one question and
+“commercial bank” in the other.</p>
+</blockquote>
+<p>The lists are printed in
+<code>documentation/d004/2023/д004 форма рус.pdf</code>, page 18 of the
+file. They are not in any of the code books.</p>
+<p>Two ready-made CSVs ship with these notes:
+<code>d004_kv_vopr12_kod_celi_kredita.csv</code> (question 2.1) and
+<code>d004_kv_vopr12_kod_istochniki_kredita.csv</code> (question 2.2),
+columns <code>code, code_norm, name_ru, name_kk</code>.</p>
+<pre class="r"><code>d  &lt;- read.csv(&quot;d004/2024/1kv/kv_vopr12.csv&quot;, colClasses = &quot;character&quot;)
+lk &lt;- read.csv(&quot;d004_kv_vopr12_kod_celi_kredita.csv&quot;, colClasses = &quot;character&quot;)
+
+purpose &lt;- merge(subset(d, NOMVOPR == &quot;1211&quot;), lk, by.x = &quot;KOD&quot;, by.y = &quot;code&quot;)
+sort(table(purpose$name_ru), decreasing = TRUE)</code></pre>
+<p>Checked on all sixteen files: nothing is left unmatched.</p>
+</div>
+<div id="nomotv-and-gr1-carry-nothing-here" class="section level3">
+<h3>NOMOTV and GR1 carry nothing here</h3>
+<p><code>NOMOTV</code> (“answer number”) is a function of
+<code>NOMVOPR</code>: always <code>1</code> on rows 1211 and 1212,
+<code>0</code> or blank on rows 200. It is filled on 57% of 2024 rows,
+and whether it is blank depends on the region: 0% blank in
+<code>TE</code> 61, about 70% in <code>TE</code> 10 and 55. That is data
+entry, not content. Use <code>NOMVOPR</code> instead.</p>
+<p><code>GR1</code> has exactly one distinct value in all of 2024 (zero)
+and is blank in over half the rows. It does not exist in 2021-2023 and
+is not in the 2024 structure document. On the paper form columns 1-3 of
+this section are the three months of the quarter and column 4 is the
+quarterly total; only the total was kept, and it is in
+<code>STOIMK</code>. Ignore <code>GR1</code> in this table.</p>
+</div>
+</div>
+<div id="two-traps" class="section level2">
+<h2>Two traps</h2>
+<p><strong><code>kv_vopr9</code> and <code>kv_vopr10</code> switch
+numbering schemes</strong> between Q3 and Q4 of 2023. 2021 uses
+<code>91</code>-<code>99</code> and <code>101</code>, <code>102</code>;
+2022 through 2023 Q3 uses <code>41</code>-<code>481</code> and
+<code>412</code>, <code>413</code>; from 2023 Q4 it reverts. Map them
+before any cross-year work:</p>
+<pre><code>kv_vopr9 :  91=41   92=42   93=43   94=44   95=451  96=45
+            97=46   98=47   99=481  913=410 914=411
+kv_vopr10:  101=412  102=413</code></pre>
+<p>Note <code>95=451</code> and <code>96=45</code>: not in order, so
+“swap the 9 for a 4” gets those two wrong.</p>
+<p><strong>The 2024 documentation is buried.</strong> 2021-2023 are laid
+out flat, but <code>documentation/d004/2024/</code> holds four nested
+folders named <code>d004_1kv2024parol2025/D004_1kv2024/</code>, and
+there is no questionnaire for 2024 at all, which is awkward, since
+<code>NOMVOPR</code>, <code>NOMOTV</code> and <code>GR1</code> only
+appear that year. The decodings are identical across years, so use the
+2023 documents.</p>
+</div>
+<div id="not-documented-anywhere" class="section level2">
+<h2>Not documented anywhere</h2>
+<p>What each of <code>kv_vopr9</code>’s eleven questions means
+individually: the structure says only “section 4, production”. Ask the
+Bureau if you need it.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
