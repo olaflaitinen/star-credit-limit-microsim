@@ -42,7 +42,7 @@ By quintile (К1 to К5): share of repayers above 50% КДН is 33.1, 14.7, 11.5
 | Г3 | Borrowers for basic needs go more often to private lenders and pawnshops | Odds ratio 3.54 (logit with quintile, urban/rural, year), p<0.001. Raw rates 31.7% vs 11.6% (about 2.7x) | Confirmed |
 | Г4 | High КДН lowers life satisfaction (D-002) | -0.03 points, p=0.26 | Not confirmed |
 
-Standard errors clustered by household; on synthetic data they are understated. Synthetic data weakens associations about by half, so the null results for Г2 and Г4 do not prove there is no effect.
+Standard errors clustered by household; on synthetic data they are understated. Synthetic data weakens associations by about half, so the null results for Г2 and Г4 do not prove there is no effect.
 
 **Wording trap:** 3.5 is an odds ratio. Never say "в 3,5 раза чаще". Say "шансы выше в 3,5 раза" or "32% против 12%".
 
@@ -97,7 +97,7 @@ Regional employment rate (T-001, ages 15-64) is not related to blocking risk (r 
 
 ## Limitations (slide 16)
 
-- Synthetic data: associations weakened about by half, errors understated. Signs are reliable, magnitudes are not.
+- Synthetic data: associations weakened by about half, errors understated. Signs are reliable, magnitudes are not.
 - Static simulation: no reaction by borrowers or banks; the shift to pawnshops is estimated through Г3, not modelled.
 - Payment codes 2.1.1.4.1 and 2.1.1.4.2 assumed to be loan repayments; needs a codebook check.
 - No survey weights; food spending (D-003) is not in the archive.
