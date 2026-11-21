@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Кредитный лимит: кто проиграет</title>
+<style>
+@font-face{font-family:'Ubuntu';src:url('../../assets/fonts/Ubuntu/Ubuntu-Regular.ttf');}
+@font-face{font-family:'Ubuntu Medium';src:url('../../assets/fonts/Ubuntu/Ubuntu-Medium.ttf');}
+@font-face{font-family:'Ubuntu Bold';src:url('../../assets/fonts/Ubuntu/Ubuntu-Bold.ttf');}
+@font-face{font-family:'Ubuntu Condensed';src:url('../../assets/fonts/Ubuntu/Ubuntu-Regular.ttf');}
+body{margin:0;background:#2b2b30;color:#eee;font-family:Ubuntu,Arial,sans-serif;padding:16px}
+.frame{width:min(100%,1280px);aspect-ratio:16/9;margin:24px auto 8px;overflow:hidden;position:relative;background:#fff}
+.scaler{width:1920px;height:1080px;transform-origin:0 0;position:absolute;top:0;left:0}
+.scaler>section{width:1920px;height:1080px;box-sizing:border-box;position:relative;overflow:hidden}
+.scaler *{margin:0;box-sizing:border-box}
+.note{max-width:1280px;margin:0 auto 32px;font-size:15px;line-height:1.5;color:#ccc}
+body.hide-notes .note{display:none}
+</style></head><body>
+<div class="frame"><div class="scaler"><section id="cover" data-transition="fade" style="background:#1E1847;color:#F7F5FB;font-family:Ubuntu, Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;gap:12px"><div style="width:96px;height:12px;background:#6C63F0;border-radius:6px"></div><div style="width:96px;height:12px;background:#E0457B;border-radius:6px"></div><div style="width:96px;height:12px;background:#F6B24A;border-radius:6px"></div><div style="width:96px;height:12px;background:#2BB39A;border-radius:6px"></div></div>
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:30px;letter-spacing:4px;text-transform:uppercase;color:#F6B24A">STAT.DATATHON-2026 · Трек Data to Policy</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:40px">
+<h1 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:96px;font-weight:500;line-height:1.05;color:#F7F5FB">Кредитный лимит:<br>кто проиграет?</h1>
+<p style="font-size:36px;line-height:1.35;color:#CFC9E8;width:1400px">Микросимуляция ужесточения долговой нагрузки (КДН) по данным обследования домохозяйств D-004, 2023-2024</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;letter-spacing:3px;color:#F6B24A">Команда STAR</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px">
+<div style="display:flex;flex-direction:column;gap:6px;border-left:4px solid #6C63F0;padding:0 0 0 20px"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:26px;color:#F7F5FB">Джафарли Искендер Анар оглы</p><p style="font-size:24px;line-height:1.35;color:#F6B24A">Руководитель команды</p><p style="font-size:24px;line-height:1.35;color:#CFC9E8">Университет АДА, Школа информационных технологий и инженерии (SITE), Баку, Азербайджан</p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:4px solid #E0457B;padding:0 0 0 20px"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:26px;color:#F7F5FB">Садыгова Назпери Агали гызы</p><p style="font-size:24px;line-height:1.35;color:#CFC9E8">Московский государственный университет имени М. В. Ломоносова, Факультет менеджмента, Баку, Азербайджан</p></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:4px solid #2BB39A;padding:0 0 0 20px"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:26px;color:#F7F5FB">Иманов Юнус Фариз оглы</p><p style="font-size:24px;line-height:1.35;color:#CFC9E8">Хельсинкский университет, Департамент математики и статистики, Хельсинки, Финляндия</p></div>
+</div>
+</div>
+
+</section>
+</div></div><p class="note"><b>1. cover</b> [Спикер 1 · 0:00-0:15] Добрый день! Мы команда STAR из Баку и Хельсинки. Наш вопрос: кто проиграет, если государство ужесточит лимит на потребительские кредиты? И можно ли сделать это, не ударив по самым уязвимым?</p><div class="frame"><div class="scaler"><section id="summary" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Главное</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Три вывода для регулятора</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:20px;background:#FDFCFF;border-top:8px solid #C8336B;border-radius:16px;padding:40px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:104px;line-height:1;white-space:nowrap;color:#B0306A">33%</p>
+<p style="font-size:28px;line-height:1.4;color:#1E1847">беднейших заемщиков уже отдают долгам больше половины дохода. Любой единый лимит бьет прежде всего по ним</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;background:#FDFCFF;border-top:8px solid #4F46C8;border-radius:16px;padding:40px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:104px;line-height:1;white-space:nowrap;color:#4F46C8">3,5×</p>
+<p style="font-size:28px;line-height:1.4;color:#1E1847">выше шансы пойти к частникам и в ломбард у тех, кто занимает на еду и лечение. Отказ банка толкает их в тень</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;background:#1E1847;border-top:8px solid #F6B24A;border-radius:16px;padding:40px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:104px;line-height:1;white-space:nowrap;color:#F6B24A">24→14%</p>
+<p style="font-size:28px;line-height:1.4;color:#E6E2F5">блокировок займов на базовые нужды, если лимит 30% ввести только для товаров длительного пользования. Эффект на кредит тот же</p>
+</div>
+</div>
+<div style="flex:1"></div>
+<div style="display:flex;gap:24px;align-items:center;background:#F3E6F1;border-radius:14px;padding:28px 32px"><x-icon name="Lightbulb" style="color:#B0306A;width:44px;height:44px"></x-icon><p style="font-size:30px;line-height:1.35;color:#1E1847"><b>Рекомендация:</b> адресный лимит КДН 30% только для займов на товары длительного пользования</p></div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">D-004 2023-2024, синтетические данные БНС; 96 000 домохозяйство-кварталов, 4 284 новых займа банков и МФО</p>
+
+</section>
+</div></div><p class="note"><b>2. summary</b> [Спикер 1 · 0:15-0:45] Сразу главное, три вывода. Первое: треть беднейших заемщиков уже отдает долгам больше половины дохода. Второе: у тех, кто занимает на еду и лечение, шансы пойти к частникам и в ломбард в три с половиной раза выше. Отказ банка толкает их в тень. Третье: мы нашли адресный вариант лимита, который дает регулятору тот же эффект, но не увеличивает отказы по займам на базовые нужды. Теперь подробнее.</p><div class="frame"><div class="scaler"><section id="context" data-transition="fade" style="display:flex; flex-direction:column; gap:36px; padding:128px 128px 160px; background:#f7f5fb">
+  <p style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#b0306a">Контекст политики</p>
+  <h2 style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:64px; font-weight:500; line-height:1.1; color:#1e1847">Регулятор готовит новые ограничения на потребкредиты</h2>
+  <div style="display:grid; gap:32px; grid-template-columns:1fr 1fr 1fr">
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; background:#fdfcff; border:1px solid #e3deef; border-radius:16px">
+      <p style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:72px; font-weight:500; color:#4f46c8">50%</p>
+      <h3 style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:32px; font-weight:500; color:#1e1847">Действующий лимит КДН</h3>
+      <p style="font-family:Ubuntu, Arial, sans-serif; font-size:26px; line-height:1.4; color:#4c4766">Платежи по долгам не более половины дохода заемщика</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; background:#fdfcff; border:1px solid #e3deef; border-radius:16px">
+      <p style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:72px; font-weight:500; color:#4f46c8">8×</p>
+      <h3 style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:32px; font-weight:500; color:#1e1847">Лимит КДД с 1.01.2027</h3>
+      <p style="font-family:Ubuntu, Arial, sans-serif; font-size:26px; line-height:1.4; color:#4c4766">Общий долг не более 8 годовых доходов; АРРФР предлагает ниже для беззалоговых кредитов</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; background:#fdfcff; border:1px solid #e3deef; border-radius:16px">
+      <p style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:72px; font-weight:500; color:#b0306a">Риск</p>
+      <h3 style="font-family:'Ubuntu Medium', Arial, sans-serif; font-size:32px; font-weight:500; color:#1e1847">Уход из банков</h3>
+      <p style="font-family:Ubuntu, Arial, sans-serif; font-size:26px; line-height:1.4; color:#4c4766">МВФ (2025): меры должны быть адресными, чтобы кредитование не ушло из регулируемого сектора</p>
+    </div>
+  </div>
+  <div style="flex:1"></div>
+  <p style="font-family:Ubuntu, Arial, sans-serif; font-size:36px; line-height:1.35; color:#1e1847"><b>Наш вопрос:</b> если лимит КДН снизить с 50% до 40% или 30%, кто потеряет доступ к кредиту и куда он пойдет?</p>
+  <p style="position:absolute; bottom:64px; left:128px; width:1664px; font-family:Ubuntu, Arial, sans-serif; font-size:24px; color:#6e6888">Источники: bes.media (май 2026), МВФ, заявление миссии по статье IV (ноябрь 2025)</p>
+  
+</section>
+</div></div><p class="note"><b>3. context</b> [Спикер 1 · 0:45-1:10] Контекст. Сегодня платежи по долгам не могут превышать 50 процентов дохода. С 2027 года добавится лимит общего долга: не больше восьми годовых доходов, и АРРФР предлагает быть еще строже. МВФ предупреждает: меры должны быть адресными, иначе кредит уходит из банков. Поэтому мы проверили, что будет, если лимит платежей снизить до 40 и 30 процентов.</p><div class="frame"><div class="scaler"><section id="data" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Данные и метод</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">96 000 домохозяйство-кварталов, 20 регионов</h2>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCFF;border:1px solid #E3DEEF;border-radius:16px;padding:32px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#4F46C8">D-004</h3>
+<p style="font-size:24px;line-height:1.4;color:#4C4766">kv_vopr0 (регион, город/село), kv_vopr11 (доходы), kv_vopr12 (займы: цель, источник, платежи), kv_vopr1-7 (непродовольственные расходы)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCFF;border:1px solid #E3DEEF;border-radius:16px;padding:32px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#4F46C8">D-008 + D-002</h3>
+<p style="font-size:24px;line-height:1.4;color:#4C4766">Размер домохозяйства для дохода на душу и квинтилей; удовлетворенность жизнью (1-10). Склейка по NOMER</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCFF;border:1px solid #E3DEEF;border-radius:16px;padding:32px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#4F46C8">T-001</h3>
+<p style="font-size:24px;line-height:1.4;color:#4C4766">Нет общего ключа с D-серией, поэтому только на уровне региона: уровень занятости 15-64 лет</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#1E1847;border-radius:16px;padding:32px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#F6B24A">Модель</h3>
+<p style="font-size:24px;line-height:1.4;color:#E6E2F5">КДН = платежи по займам / доход за квартал. Правило применяется к банкам и МФО; новый заем блокируется, если КДН выше лимита</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#4C4766">Python (pandas, statsmodels): МНК с кластеризацией по домохозяйству, логит-модели, микросимуляция при лимитах 20-70%. Код воспроизводим.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">Синтетические микроданные БНС, 2023-2024. Коды платежей 2.1.1.4.1 и 2.1.1.4.2 требуют сверки с кодовой книгой</p>
+
+</section>
+</div></div><p class="note"><b>4. data</b> [Спикер 1 · 1:10-1:30] Данные: обследование D-004, 12 тысяч домохозяйств за 8 кварталов, 96 тысяч наблюдений. Мы связали доходы семьи, ее займы, их цель и источник, а для регионов добавили занятость из T-001. Для каждой семьи считаем КДН: платежи по займам, деленные на доход.</p><div class="frame"><div class="scaler"><section id="r1" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Результат 1 · Дескриптивный анализ</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Каждое четвертое домохозяйство платит по займам</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:6px solid #4F46C8;padding:24px 0 0 0">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:120px;font-weight:500;color:#1E1847;line-height:1">28%</p>
+<p style="font-size:28px;line-height:1.35;color:#4C4766">домохозяйств вносят платежи по займам в каждом квартале</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;border-top:6px solid #4F46C8;padding:24px 0 0 0">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:120px;font-weight:500;color:#1E1847;line-height:1">15,5%</p>
+<p style="font-size:28px;line-height:1.35;color:#4C4766">медианный КДН среди тех, кто платит</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;border-top:6px solid #C8336B;padding:24px 0 0 0">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:120px;font-weight:500;color:#B0306A;line-height:1">14,4%</p>
+<p style="font-size:28px;line-height:1.35;color:#4C4766">платящих отдают по долгам больше половины дохода</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;border-top:6px solid #4F46C8;padding:24px 0 0 0">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:120px;font-weight:500;color:#1E1847;line-height:1">5,9%</p>
+<p style="font-size:28px;line-height:1.35;color:#4C4766">берут новый заем за квартал</p>
+</div>
+</div>
+<div style="flex:1"></div>
+<p style="font-size:30px;line-height:1.4;color:#4C4766;background:#FDFCFF;border-radius:14px;padding:28px 32px">Среди новых займов банков и МФО: <b style="color:#1E1847">11,2%</b> выданы домохозяйствам, у которых КДН уже выше 50%. Либо правило обходится, либо доход в обследовании занижен; это стоит проверить на реальных данных.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">D-004, 2023-2024, 96 000 домохозяйство-кварталов, без весов. КДН = платежи / доход за квартал</p>
+
+</section>
+</div></div><p class="note"><b>5. r1</b> [Спикер 1 · 1:30-1:50] Больше четверти домохозяйств платят по займам, медианный КДН у них 15 процентов. Но у каждого седьмого платящего на долги уходит больше половины дохода. И деталь: 11 процентов новых займов банков и МФО уже выдаются семьям сверх действующего лимита.</p><div class="frame"><div class="scaler"><section id="r1b" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Результат 1 · Новые займы</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Займы берут на технику, но каждый седьмой на еду и лечение</h2>
+<div style="display:flex;gap:96px">
+<div style="flex:1;display:flex;flex-direction:column;gap:22px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:30px;font-weight:500">Цель займа, % новых займов</h3>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Товары длит. польз.</p><div style="width:296px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">51,1</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Прочее</p><div style="width:143px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">24,6</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Продукты питания</p><div style="width:56px;height:28px;background:#C8336B;border-radius:4px"></div><p style="font-size:26px;font-weight:600">9,7</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Строительство дома</p><div style="width:27px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">4,6</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Здоровье, лекарства</p><div style="width:21px;height:28px;background:#C8336B;border-radius:4px"></div><p style="font-size:26px;font-weight:600">3,6</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Покупка жилья</p><div style="width:17px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">2,9</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Образование</p><div style="width:13px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">2,2</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Долги за ЖКУ</p><div style="width:6px;height:28px;background:#C8336B;border-radius:4px"></div><p style="font-size:26px;font-weight:600">1,0</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:22px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:30px;font-weight:500">Источник займа, % новых займов</h3>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Коммерческий банк</p><div style="width:416px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">71,8</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Частное лицо</p><div style="width:78px;height:28px;background:#C8336B;border-radius:4px"></div><p style="font-size:26px;font-weight:600">13,5</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">МФО</p><div style="width:45px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">7,7</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Прочее</p><div style="width:28px;height:28px;background:#4F46C8;border-radius:4px"></div><p style="font-size:26px;font-weight:600">4,8</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:300px;font-size:26px">Ломбард</p><div style="width:10px;height:28px;background:#C8336B;border-radius:4px"></div><p style="font-size:26px;font-weight:600">1,8</p></div>
+<p style="font-size:26px;line-height:1.4;color:#4C4766">Розовым: базовые нужды (еда, лечение, долги за ЖКУ) и неформальные источники (частное лицо, ломбард)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">D-004 kv_vopr12, вопросы 2.1 и 2.2, 2023-2024; доля ответов. Коды по форме Д-004</p>
+
+</section>
+</div></div><p class="note"><b>6. r1b</b> [Спикер 1 · 1:50-2:10] На что занимают? Половина новых займов берется на технику и мебель. Но каждый седьмой заем на еду, лечение или долги за коммуналку. И около 15 процентов займов приходят не из банка, а от частных лиц и ломбардов.</p><div class="frame"><div class="scaler"><section id="hyp" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Результат 2 · Гипотезы</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Две гипотезы подтвердились, две нет</h2>
+<table style="font-size:29px;color:#1E1847;font-family:Ubuntu, Arial, sans-serif">
+<tr><th style="width:8%">№</th><th style="width:44%">Гипотеза</th><th style="width:30%">Результат</th><th style="width:18%">Вывод</th></tr>
+<tr><td>Г1</td><td>Бедные домохозяйства несут большую долговую нагрузку</td><td>КДН ниже на 37 п.п. в К5 против К1, p&lt;0,001</td><td>Подтверждена</td></tr>
+<tr style="background:#FDFCFF"><td>Г2</td><td>На базовые нужды чаще занимают бедные</td><td>Различий по квинтилям нет, p=0,27</td><td>Не подтверждена</td></tr>
+<tr><td>Г3</td><td>Кто занимает на базовые нужды, чаще идет к частникам и в ломбард</td><td>Шансы выше в 3,5 раза, p&lt;0,001</td><td>Подтверждена</td></tr>
+<tr style="background:#FDFCFF"><td>Г4</td><td>Высокий КДН снижает удовлетворенность жизнью</td><td>-0,03 балла, p=0,26</td><td>Не подтверждена</td></tr>
+</table>
+<div style="flex:1"></div>
+<p style="font-size:28px;line-height:1.4;color:#4C4766">Г1: МНК с фиксированными эффектами региона и квартала. Г2, Г3: логит. Г4: МНК с контролем дохода. Синтетика ослабляет связи примерно вдвое, поэтому отрицательный результат по Г2 и Г4 не доказывает отсутствие эффекта.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">Стандартные ошибки кластеризованы по домохозяйству; на синтетических данных они занижены (README БНС, п. 6)</p>
+
+</section>
+</div></div><p class="note"><b>7. hyp</b> [Спикер 1 · 2:10-2:30] Мы проверили четыре гипотезы. Две подтвердились: нагрузка неравна по доходу, и займы на базовые нужды уходят к неформальным кредиторам. Две не подтвердились, и мы показываем это открыто: на синтетических данных слабые эффекты могут пропадать.</p><div class="frame"><div class="scaler"><section id="h1" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Г1 · Регрессивная нагрузка</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">В беднейшей пятой части каждый третий платящий отдает долгам больше половины дохода</h2>
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-size:28px;color:#4C4766">Доля платящих по займам с КДН выше 50%, по квинтилям дохода на душу</p>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:280px;font-size:30px">К1 (беднейшие)</p><div style="width:993px;height:56px;background:#C8336B;border-radius:6px"></div><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:40px;font-weight:500">33,1%</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:280px;font-size:30px">К2</p><div style="width:441px;height:56px;background:#4F46C8;border-radius:6px"></div><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:40px;font-weight:500">14,7%</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:280px;font-size:30px">К3</p><div style="width:345px;height:56px;background:#4F46C8;border-radius:6px"></div><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:40px;font-weight:500">11,5%</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:280px;font-size:30px">К4</p><div style="width:240px;height:56px;background:#4F46C8;border-radius:6px"></div><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:40px;font-weight:500">8,0%</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:280px;font-size:30px">К5 (богатейшие)</p><div style="width:123px;height:56px;background:#4F46C8;border-radius:6px"></div><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:40px;font-weight:500">4,1%</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">D-004, 2023-2024; квинтили внутри каждого квартала. Медианный КДН платящих: К1 30,9%, К5 8,9%</p>
+
+</section>
+</div></div><p class="note"><b>8. h1</b> [Спикер 1 · 2:30-2:55] Первая гипотеза. Среди беднейших 20 процентов треть платящих отдает долгам больше половины дохода, среди богатейших 4 процента. Разница в восемь раз. Медианный КДН у беднейших 31 процент, у богатейших 9. Значит, любой единый лимит ударит прежде всего по беднейшим.</p><div class="frame"><div class="scaler"><section id="h3" data-transition="fade" style="background:#B0306A;color:#FFF7FB;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#FCE4EF">Г3 · Риск ухода в тень</p>
+<div style="display:flex;gap:96px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:220px;font-weight:500;line-height:1;color:#FFF7FB">3,5×</p>
+<p style="font-size:30px;color:#FCE4EF">отношение шансов, p&lt;0,001</p>
+</div>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.15;color:#FFF7FB;width:960px">У тех, кто занимает на еду, лечение или долги за ЖКУ, шансы пойти к частным лицам и в ломбард в 3,5 раза выше</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:4px solid #FCE4EF;padding:24px 0 0 0">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:72px;font-weight:500">31,7%</p>
+<p style="font-size:28px;color:#FCE4EF">займов на базовые нужды из неформальных источников</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:4px solid #FCE4EF;padding:24px 0 0 0">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:72px;font-weight:500">11,6%</p>
+<p style="font-size:28px;color:#FCE4EF">займов на прочие цели из неформальных источников</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#FCE4EF">Логит с контролем квинтиля, город/село и года; 5 687 новых займов, D-004 2023-2024</p>
+
+</section>
+</div></div><p class="note"><b>9. h3</b> [Спикер 1 · 2:55-3:20] Третья гипотеза. Кто занимает на еду и лечение, уже сейчас в 32 процентах случаев берет у частных лиц и в ломбардах. Для прочих целей это 12 процентов. Шансы выше в три с половиной раза. Значит, отказ банка толкает в тень именно их. Передаю слово коллеге.</p><div class="frame"><div class="scaler"><section id="sim" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Микросимуляция</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Лимит 30% отсекает каждый третий заем у беднейших и каждый двенадцатый у богатейших</h2>
+<table style="font-size:28px;color:#1E1847;font-family:Ubuntu, Arial, sans-serif">
+<tr><th style="width:28%">Лимит КДН</th><th style="width:12%;text-align:right">Всего</th><th style="width:12%;text-align:right">К1</th><th style="width:12%;text-align:right">К2</th><th style="width:12%;text-align:right">К3</th><th style="width:12%;text-align:right">К4</th><th style="width:12%;text-align:right">К5</th></tr>
+<tr><td>50% (действующий)</td><td style="text-align:right">11,2</td><td style="text-align:right">25,4</td><td style="text-align:right">11,4</td><td style="text-align:right">8,5</td><td style="text-align:right">5,6</td><td style="text-align:right">2,7</td></tr>
+<tr style="background:#FDFCFF"><td>40%</td><td style="text-align:right">14,5</td><td style="text-align:right">30,1</td><td style="text-align:right">15,4</td><td style="text-align:right">11,6</td><td style="text-align:right">8,5</td><td style="text-align:right">4,4</td></tr>
+<tr style="background:#F3E6F1"><td><b>30%</b></td><td style="text-align:right"><b>19,4</b></td><td style="text-align:right"><b>34,5</b></td><td style="text-align:right">22,0</td><td style="text-align:right">15,4</td><td style="text-align:right">13,5</td><td style="text-align:right"><b>8,5</b></td></tr>
+</table>
+<div style="flex:1"></div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:4px solid #4F46C8;padding:16px 0 0 0"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:44px;line-height:1.1">7,9 → 13,4%</p><p style="font-size:24px;color:#4C4766">сокращение кредита на технику</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:4px solid #C8336B;padding:16px 0 0 0"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:44px;line-height:1.1;color:#B0306A">14,0 → 24,2%</p><p style="font-size:24px;color:#4C4766">займов на еду, лечение и ЖКУ блокируется</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:4px solid #1F9C86;padding:16px 0 0 0"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:44px;line-height:1.1">18,0 / 20,4%</p><p style="font-size:24px;color:#4C4766">блокировка в селе и в городе при 30%</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">% новых займов банков и МФО (n = 4 284), D-004 2023-2024. Статическая симуляция, без реакции банков и заемщиков</p>
+
+</section>
+</div></div><p class="note"><b>10. sim</b> [Спикер 2 · 3:20-3:50] Теперь симуляция. Мы взяли все 4 284 новых займа банков и МФО и применили правило: если КДН семьи выше лимита, заем блокируется. При действующих 50 процентах блокируется 11 процентов займов, при 30 уже 19. У беднейших каждый третий заем, у богатейших каждый двенадцатый. И займов на еду и лечение блокируется 24 процента вместо 14.</p><div class="frame"><div class="scaler"><section id="persp" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Эффекты единого лимита 30% по перспективам</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Одна мера, четыре группы проигравших</h2>
+<div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:#FDFCFF;border-top:8px solid #4F46C8;border-radius:16px;padding:32px 36px">
+<div style="display:flex;gap:16px;align-items:center"><x-icon name="Users" style="color:#4F46C8;width:40px;height:40px"></x-icon><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500">Домохозяйства</h3></div>
+<div style="display:flex;gap:28px;align-items:center"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:72px;line-height:1;color:#4F46C8;white-space:nowrap">34,5%</p><p style="font-size:26px;line-height:1.35;color:#4C4766">займов К1 блокируется против 8,5% в К5</p></div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:#FDFCFF;border-top:8px solid #C8336B;border-radius:16px;padding:32px 36px">
+<div style="display:flex;gap:16px;align-items:center"><x-icon name="Warning" style="color:#B0306A;width:40px;height:40px"></x-icon><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500">Социальная уязвимость</h3></div>
+<div style="display:flex;gap:28px;align-items:center"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:72px;line-height:1;color:#B0306A;white-space:nowrap">24,2%</p><p style="font-size:26px;line-height:1.35;color:#4C4766">займов на еду, лечение и ЖКУ блокируется: риск ухода к ломбардам (Г3)</p></div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:#FDFCFF;border-top:8px solid #E5A030;border-radius:16px;padding:32px 36px">
+<div style="display:flex;gap:16px;align-items:center"><x-icon name="Chart" style="color:#9A6410;width:40px;height:40px"></x-icon><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500">Торговля</h3></div>
+<div style="display:flex;gap:28px;align-items:center"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:72px;line-height:1;color:#9A6410;white-space:nowrap">13,4%</p><p style="font-size:26px;line-height:1.35;color:#4C4766">объема кредита на товары длительного пользования выпадает</p></div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:#FDFCFF;border-top:8px solid #1F9C86;border-radius:16px;padding:32px 36px">
+<div style="display:flex;gap:16px;align-items:center"><x-icon name="Globe" style="color:#14796A;width:40px;height:40px"></x-icon><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500">Регионы</h3></div>
+<div style="display:flex;gap:28px;align-items:center"><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:72px;line-height:1;color:#14796A;white-space:nowrap">3×</p><p style="font-size:26px;line-height:1.35;color:#4C4766">разница: от 32% в Акмолинской до 10% в Алматинской области</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">Симуляция при едином лимите КДН 30% для банков и МФО; D-004 2023-2024</p>
+
+</section>
+</div></div><p class="note"><b>11. persp</b> [Спикер 2 · 3:50-4:15] Одна мера, четыре группы проигравших. Беднейшие семьи: у них блокируется 35 процентов займов. Люди, которым нужны деньги на еду и лечение: каждый четвертый такой заем. Торговля: выпадает 13 процентов кредита на технику. И регионы: разброс в три раза.</p><div class="frame"><div class="scaler"><section id="regions" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Региональная перспектива</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Разброс по регионам в три раза: от 10% до 32%</h2>
+<div style="display:flex;gap:56px;align-items:flex-start">
+<div style="width:1180px;display:grid;grid-template-columns:repeat(7, 160px);grid-template-rows:repeat(4, 116px);gap:10px">
+<div></div><div></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Костанай</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">15,7</p></div>
+<div style="background:#EFEAFB;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">СКО</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">11,8</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Павлодар</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">15,0</p></div>
+<div></div><div></div>
+<div style="background:#9C8FE6;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">ЗКО</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">20,5</p></div>
+<div style="background:#3F2FA8;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;border:3px solid #C8336B"><p style="font-size:24px;line-height:1.2;color:#FFFFFF">Актобе</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#FFFFFF">31,4</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Улытау</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">17,1</p></div>
+<div style="background:#3F2FA8;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#FFFFFF">Акмола</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#FFFFFF">32,3</p></div>
+<div style="background:#5E4ECF;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#FFFFFF">Астана</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#FFFFFF">24,9</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Абай</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">14,3</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">ВКО</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">15,5</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Атырау</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">17,4</p></div>
+<div style="background:#5E4ECF;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#FFFFFF">Кызылорда</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#FFFFFF">22,9</p></div>
+<div></div>
+<div style="background:#5E4ECF;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#FFFFFF">Караганда</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#FFFFFF">22,1</p></div>
+<div></div>
+<div style="background:#5E4ECF;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#FFFFFF">Жетісу</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#FFFFFF">22,2</p></div>
+<div></div>
+<div style="background:#EFEAFB;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Мангистау</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">10,7</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Туркестан</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">17,1</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Шымкент</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">17,4</p></div>
+<div style="background:#9C8FE6;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Жамбыл</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">21,3</p></div>
+<div style="background:#EFEAFB;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Алм. обл.</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">10,4</p></div>
+<div style="background:#C9C1F2;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-size:24px;line-height:1.2;color:#1E1847">Алматы</p><p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;line-height:1.1;color:#1E1847">14,2</p></div>
+<div></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#FDFCFF;border-top:6px solid #C8336B;border-radius:14px;padding:24px 28px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:30px;font-weight:500">Актобе: двойной риск</h3>
+<p style="font-size:24px;line-height:1.4;color:#4C4766">31,4% займов блокируется, а 56% новых займов уже идут от частных лиц и ломбардов</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:24px;color:#4C4766">% займов, блокируемых при 30%</p>
+<div style="display:flex;gap:6px"><div style="flex:1;height:20px;background:#EFEAFB;border:1px solid #D9D2EE;border-radius:4px"></div><div style="flex:1;height:20px;background:#C9C1F2;border-radius:4px"></div><div style="flex:1;height:20px;background:#9C8FE6;border-radius:4px"></div><div style="flex:1;height:20px;background:#5E4ECF;border-radius:4px"></div><div style="flex:1;height:20px;background:#3F2FA8;border-radius:4px"></div></div>
+<div style="display:flex;justify-content:space-between"><p style="font-size:24px;color:#4C4766">до 14</p><p style="font-size:24px;color:#4C4766">26 и выше</p></div>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#4C4766">Занятость по T-001 с риском блокировки не связана (r = 0,00)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">Схема регионов, не в масштабе. Займы банков и МФО, D-004 2023-2024; занятость 15-64 лет, T-001 2024</p>
+
+</section>
+</div></div><p class="note"><b>12. regions</b> [Спикер 2 · 4:15-4:35] По регионам сильнее всего пострадают Акмолинская, Актюбинская области и Астана. В Актобе двойной риск: много отказов, и уже сейчас больше половины новых займов от частных лиц и ломбардов. С уровнем занятости в регионе это не связано.</p><div class="frame"><div class="scaler"><section id="target" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Наше предложение · проверено симуляцией</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Адресный лимит: тот же эффект на потребкредит без роста блокировок на еду и лечение</h2>
+<table style="font-size:32px;color:#1E1847;font-family:Ubuntu, Arial, sans-serif">
+<tr><th style="width:32%">% займов</th><th style="width:17%;text-align:right">Сейчас, 50%</th><th style="width:17%;text-align:right">Единый 30%</th><th style="width:17%;text-align:right">Адресный</th><th style="width:17%;text-align:right">+ соцзащита</th></tr>
+<tr><td>Кредит на технику, сокращение</td><td style="text-align:right">7,9</td><td style="text-align:right">13,4</td><td style="text-align:right"><b>13,4</b></td><td style="text-align:right">13,3</td></tr>
+<tr style="background:#F3E6F1"><td><b>Еда, лечение, ЖКУ: блок</b></td><td style="text-align:right">14,0</td><td style="text-align:right">24,2</td><td style="text-align:right"><b>14,2</b></td><td style="text-align:right"><b>0</b></td></tr>
+<tr><td>Беднейшие (К1): блок</td><td style="text-align:right">25,4</td><td style="text-align:right">34,5</td><td style="text-align:right"><b>30,2</b></td><td style="text-align:right">26,5</td></tr>
+<tr style="background:#FDFCFF"><td>Всего заблокировано</td><td style="text-align:right">11,2</td><td style="text-align:right">19,4</td><td style="text-align:right"><b>15,6</b></td><td style="text-align:right">13,9</td></tr>
+</table>
+<div style="flex:1"></div>
+<p style="font-size:26px;line-height:1.4;color:#4C4766"><b style="color:#1E1847">Адресный:</b> КДН 30% для займов на товары длительного пользования, 50% для остальных. <b style="color:#1E1847">+ соцзащита:</b> займы на еду, лечение и ЖКУ не блокируются.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">Новые займы банков и МФО (n = 4 284); кредит на технику: % объема. D-004 2023-2024</p>
+
+</section>
+</div></div><p class="note"><b>13. target</b> [Спикер 2 · 4:35-5:10] Поэтому наше предложение: адресный лимит. 30 процентов только для займов на технику и мебель, 50 для остальных. Кредит на технику сокращается ровно так же, на 13,4 процента. Но отказов по займам на еду и лечение 14 процентов, как сегодня, а не 24. Тот же эффект для регулятора без удара по базовым нуждам. А с социальным исключением такие займы не блокируются вовсе.</p><div class="frame"><div class="scaler"><section id="recs" data-transition="fade" style="background:#1E1847;color:#F7F5FB;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:44px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#F6B24A">Рекомендации</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1;color:#F7F5FB">Ужесточать адресно и со страховочной сетью</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:52px 64px">
+<div style="display:flex;flex-direction:column;gap:8px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#F6B24A">1. Адресный лимит вместо единого</h3><p style="font-size:28px;line-height:1.4;color:#CFC9E8">КДН 30% только для займов на товары длительного пользования: тот же эффект на потребкредит, блокировки займов на базовые нужды 14% вместо 24%</p></div>
+<div style="display:flex;flex-direction:column;gap:8px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#F6B24A">2. Канал для базовых нужд</h3><p style="font-size:28px;line-height:1.4;color:#CFC9E8">Малые социальные займы или экстренная помощь на еду и лечение, чтобы отказ банка не вел в ломбард</p></div>
+<div style="display:flex;flex-direction:column;gap:8px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#F6B24A">3. Мониторинг ухода в тень</h3><p style="font-size:28px;line-height:1.4;color:#CFC9E8">Отслеживать долю займов у частных лиц и в ломбардах по регионам; пилот в Актюбинской и Акмолинской областях</p></div>
+<div style="display:flex;flex-direction:column;gap:8px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#F6B24A">4. Проверить соблюдение 50%</h3><p style="font-size:28px;line-height:1.4;color:#CFC9E8">11% новых займов выданы сверх лимита: сверить подтверждение доходов в банках и МФО</p></div>
+<div style="display:flex;flex-direction:column;gap:8px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:32px;font-weight:500;color:#F6B24A">5. Для БНС: вопрос об остатке долга</h3><p style="font-size:28px;line-height:1.4;color:#CFC9E8">В D-004 есть потоки, но нет остатка долга, поэтому лимит КДД 2027 года сейчас измерить нельзя. Добавить один вопрос</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#CFC9E8">Рекомендации основаны на синтетических данных; величины эффектов нужно подтвердить на реальных записях БНС</p>
+
+</section>
+</div></div><p class="note"><b>14. recs</b> [Спикер 2 · 5:10-5:40] Пять рекомендаций. Первое: адресный лимит вместо единого. Второе: канал помощи для базовых нужд, чтобы отказ банка не вел в ломбард. Третье: мониторинг частных займов по регионам, начиная с Актюбинской и Акмолинской областей. Четвертое: проверить соблюдение действующего лимита. И пятое, для Бюро: вопрос об остатке долга в D-004, без него лимит 2027 года не измерить.</p><div class="frame"><div class="scaler"><section id="demo" data-transition="fade" style="background:#1E1847;color:#F7F5FB;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#F6B24A">Живой инструмент</p>
+<div style="display:flex;gap:56px;align-items:flex-start">
+<div style="width:560px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1;color:#F7F5FB">Симулятор КДН в браузере</h2>
+<p style="font-size:28px;line-height:1.45;color:#CFC9E8">Жюри может само задать лимиты для разных целей займа и сразу увидеть, кто проигрывает: по доходу, цели займа и регионам.</p>
+<p style="font-size:28px;line-height:1.45;color:#CFC9E8">4 284 займа пересчитываются мгновенно, справка по четырем перспективам пишется из чисел.</p>
+<p style="font-size:26px;line-height:1.4"><a href="https://olaflaitinen.github.io/star-credit-limit-microsim/simulator/simulator.html" style="color:#F6B24A">Открыть симулятор</a></p>
+</div>
+<img src="assets/973d23b15cea25113b0e2e156fc93914.png" alt="Экран симулятора: сценарии, ключевые показатели, блокировки по квинтилям и регионам" style="width:1048px;height:655px;object-fit:cover;border-radius:16px;border:2px solid #4F46C8">
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#CFC9E8">Тот же код микросимуляции, что и в анализе; данные D-004 2023-2024</p>
+
+</section>
+</div></div><p class="note"><b>15. demo</b> [Спикер 2 · 5:40-6:15] Все это можно проверить самим. (Переключиться на вкладку с симулятором.) Нажимаю «Единый лимит 30%»: беднейших блокируют в четыре раза чаще, а займы на еду и лечение в каждом четвертом случае. Теперь «Адресный лимит»: кредит на технику сокращается так же, а по базовым нуждам отказов столько же, сколько сегодня. И «Адресный + соцзащита»: такие займы не блокируются вовсе. (Вернуться к слайдам. Если вкладка не открылась, сказать: «Покажем симулятор после выступления» и идти дальше.)</p><div class="frame"><div class="scaler"><section id="limits" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Ограничения</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Что эта работа не доказывает</h2>
+<div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FDFCFF;border-top:6px solid #4F46C8;border-radius:14px;padding:32px 36px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:34px;font-weight:500">Синтетические данные</h3><p style="font-size:28px;line-height:1.4;color:#4C4766">Связи ослаблены примерно вдвое, ошибки занижены. Знаки надежны, величины нет</p></div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FDFCFF;border-top:6px solid #C8336B;border-radius:14px;padding:32px 36px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:34px;font-weight:500">Статическая симуляция</h3><p style="font-size:28px;line-height:1.4;color:#4C4766">Нет реакции заемщиков и банков: перенос займов в ломбарды оценен через Г3, а не смоделирован</p></div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FDFCFF;border-top:6px solid #E5A030;border-radius:14px;padding:32px 36px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:34px;font-weight:500">Коды платежей</h3><p style="font-size:28px;line-height:1.4;color:#4C4766">Коды 2.1.1.4.1 и 2.1.1.4.2 приняты за погашение займов по структуре данных; нужна сверка с кодовой книгой</p></div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FDFCFF;border-top:6px solid #1F9C86;border-radius:14px;padding:32px 36px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:34px;font-weight:500">Без весов и без питания</h3><p style="font-size:28px;line-height:1.4;color:#4C4766">Оценки по выборке, а не по населению; расходы на питание (D-003) не входят в архив</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">Весь код готов к запуску на реальных данных БНС без изменений</p>
+
+</section>
+</div></div><p class="note"><b>16. limits</b> [Спикер 2 · 6:15-6:30] Честно об ограничениях: данные синтетические, поэтому направления связей надежны, а точные величины нужно проверить на реальных данных БНС. Наш код готов к этому без изменений.</p><div class="frame"><div class="scaler"><section id="roadmap" data-transition="fade" style="background:#F7F5FB;color:#1E1847;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#B0306A">Следующий шаг · ИИ-слой</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:64px;font-weight:500;line-height:1.1">Симулятор, которому можно задать вопрос текстом</h2>
+<div style="display:flex;align-items:stretch;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDFCFF;border:1px solid #E3DEEF;border-radius:16px;padding:28px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:28px;font-weight:500">Текст меры</h3><p style="font-size:27px;line-height:1.4;color:#4C4766">«Снизить КДН до 35% для беззалоговых займов»</p></div>
+<x-shape kind="arrow-right" style="background:#4F46C8;width:48px;height:24px;align-self:center"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E1847;border-radius:16px;padding:28px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:28px;font-weight:500;color:#F6B24A">Локальная языковая модель</h3><p style="font-size:27px;line-height:1.4;color:#E6E2F5">Открытая модель на суперкомпьютере GH200 (CSC Roihu, Финляндия) переводит текст в параметры</p></div>
+<x-shape kind="arrow-right" style="background:#4F46C8;width:48px;height:24px;align-self:center"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDFCFF;border:1px solid #E3DEEF;border-radius:16px;padding:28px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:28px;font-weight:500">Микросимулятор</h3><p style="font-size:27px;line-height:1.4;color:#4C4766">Код этой работы: блокировки по группам, целям, регионам</p></div>
+<x-shape kind="arrow-right" style="background:#4F46C8;width:48px;height:24px;align-self:center"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E1847;border-radius:16px;padding:28px"><h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:28px;font-weight:500;color:#F6B24A">Справка</h3><p style="font-size:27px;line-height:1.4;color:#E6E2F5">Модель пишет оценку по 4 перспективам только из чисел симулятора</p></div>
+</div>
+<div style="flex:1"></div>
+<div style="display:flex;gap:48px">
+<p style="flex:1;font-size:28px;line-height:1.4;color:#4C4766"><b style="color:#1E1847">Данные не покидают контур:</b> модель работает локально, без внешних сервисов.</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#4C4766"><b style="color:#1E1847">Числа считает код, не модель:</b> модель только переводит и пишет, поэтому не может придумать цифру.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6E6888">Команда STAR · ijafarli14955@ada.edu.az · sadigova.nazpari@gmail.com · yunus.z.imanov@helsinki.fi</p>
+
+</section>
+</div></div><p class="note"><b>17. roadmap</b> [Спикер 2 · 6:30-6:45] Следующий шаг: локальная языковая модель на суперкомпьютере, чтобы меру можно было описать обычным текстом. Числа при этом считает код, а не модель, и данные не покидают контур.</p><div class="frame"><div class="scaler"><section id="team" data-transition="fade" style="background:#1E1847;color:#F7F5FB;font-family:Ubuntu, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;gap:12px"><div style="width:96px;height:12px;background:#6C63F0;border-radius:6px"></div><div style="width:96px;height:12px;background:#E0457B;border-radius:6px"></div><div style="width:96px;height:12px;background:#F6B24A;border-radius:6px"></div><div style="width:96px;height:12px;background:#2BB39A;border-radius:6px"></div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#F6B24A">Команда STAR</p>
+<h2 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:80px;font-weight:500;line-height:1.1;color:#F7F5FB">Спасибо за внимание</h2>
+</div>
+<div style="flex:1"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:14px;background:#2A2458;border-top:6px solid #6C63F0;border-radius:16px;padding:32px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:30px;font-weight:500;line-height:1.25;color:#F7F5FB">Джафарли Искендер Анар оглы</h3>
+<p style="font-size:24px;color:#F6B24A">Руководитель команды</p>
+<p style="font-size:24px;line-height:1.4;color:#CFC9E8">Университет АДА, Школа информационных технологий и инженерии (SITE), Баку, Азербайджан</p>
+<div style="flex:1"></div><p style="font-size:24px;color:#F7F5FB">ijafarli14955@ada.edu.az</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#2A2458;border-top:6px solid #E0457B;border-radius:16px;padding:32px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:30px;font-weight:500;line-height:1.25;color:#F7F5FB">Садыгова Назпери Агали гызы</h3>
+<p style="font-size:24px;line-height:1.4;color:#CFC9E8">Московский государственный университет имени М. В. Ломоносова, Факультет менеджмента, Баку, Азербайджан</p>
+<div style="flex:1"></div><p style="font-size:24px;color:#F7F5FB">sadigova.nazpari@gmail.com</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#2A2458;border-top:6px solid #2BB39A;border-radius:16px;padding:32px">
+<h3 style="font-family:'Ubuntu Medium', Ubuntu, Arial, sans-serif;font-size:30px;font-weight:500;line-height:1.25;color:#F7F5FB">Иманов Юнус Фариз оглы</h3>
+<p style="font-size:24px;line-height:1.4;color:#CFC9E8">Хельсинкский университет, Департамент математики и статистики, Хельсинки, Финляндия</p>
+<div style="flex:1"></div><p style="font-size:24px;color:#F7F5FB">yunus.z.imanov@helsinki.fi</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#CFC9E8">STAT.DATATHON-2026 · Трек Data to Policy</p>
+
+</section>
+</div></div><p class="note"><b>18. team</b> [Спикер 2 · 6:45-6:50] Спасибо! Будем рады вопросам.</p>
+<script>
+function fit(){document.querySelectorAll('.frame').forEach(f=>{f.firstChild.style.transform='scale('+(f.clientWidth/1920)+')';});}
+addEventListener('resize',fit);fit();
+addEventListener('keydown',e=>{if(e.key==='n'||e.key==='N')document.body.classList.toggle('hide-notes');});
+</script></body></html>
