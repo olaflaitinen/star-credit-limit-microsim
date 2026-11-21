@@ -40,7 +40,7 @@ bash run_all.sh /path/to/synthetic_microdata_2021-2024_20260921 out
 
 The pipeline takes about 20 seconds and reproduces `code/results.json` exactly. The raw data is not in this repository; see [`data/README.md`](data/README.md) for where it comes from and which files the code reads.
 
-Open `simulator/simulator.html` in any browser (it works offline, the loan data is embedded). To rebuild a slide preview:
+Open `simulator/simulator.html` in any browser. The loan data is embedded, so it needs no server; without internet it falls back from the Ubuntu web font to a system font. To rebuild a slide preview:
 
 ```bash
 python3 slides/build_preview.py main_18   # then open slides/main_18/preview.html
@@ -65,8 +65,8 @@ code/                      analysis pipeline (Python: pandas, numpy, statsmodels
   README.md                run notes (Russian)
   _early_versions/         first drafts of build_panel.py and analyze.py (superseded)
 simulator/
-  simulator.html           final interactive simulator, offline, single file
-  simulator_first_version.html   first version, as submitted on 12 Oct 2026
+  simulator.html           final interactive simulator, single self-contained file
+  simulator_first_version.html   first version, kept as submitted with the code archive
 slides/                    the three decks (HTML sections + deck.json) and previews, see slides/README.md
   main_18/                 the deck presented in the final, with the 7-minute speech in speaker notes
   final_9/  speech_9/      shorter 9-slide versions that were not used
@@ -74,7 +74,6 @@ slides/                    the three decks (HTML sections + deck.json) and previ
 speech/
   STAR_speech_7min.txt     the speech, plain text, two speakers, timed
   QA_prep_ru.md            31 likely jury questions with Russian answers
-  presenting_on_zoom.md    how to present with notes on Zoom
   explainers_en.md         the project and the simulator in plain English
 docs/
   FINDINGS.md              every number, definition, hypothesis, scenario and limitation
