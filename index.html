@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STAR: Кредитный лимит, кто проиграет?</title>
+<meta name="description" content="Team STAR, STAT.DATATHON-2026, Data to Policy, 1st place. Household microsimulation of Kazakhstan's debt-service limit.">
+<style>
+@font-face{font-family:'Ubuntu';src:url('assets/fonts/Ubuntu/Ubuntu-Regular.ttf');font-weight:400}
+@font-face{font-family:'Ubuntu';src:url('assets/fonts/Ubuntu/Ubuntu-Medium.ttf');font-weight:500}
+@font-face{font-family:'Ubuntu';src:url('assets/fonts/Ubuntu/Ubuntu-Bold.ttf');font-weight:700}
+:root{--dark:#1E1847;--light:#F7F5FB;--blue:#4F46C8;--magenta:#C8336B;--amber:#F6B24A;--teal:#1F9C86}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Ubuntu',system-ui,sans-serif;background:var(--light);color:var(--dark);line-height:1.5}
+header{background:var(--dark);color:#fff;padding:64px 24px 56px}
+.wrap{max-width:960px;margin:0 auto}
+.tag{display:inline-block;background:var(--amber);color:var(--dark);font-weight:500;padding:4px 12px;border-radius:999px;font-size:14px}
+h1{font-size:44px;line-height:1.15;margin:20px 0 8px;font-weight:700}
+.sub{font-size:20px;opacity:.85;margin:0}
+.lead{font-size:18px;max-width:760px;margin:24px 0 0;opacity:.9}
+main{padding:40px 24px 64px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:40px}
+.card{display:block;background:#fff;border-radius:14px;padding:22px;text-decoration:none;color:inherit;border:1px solid #E4E0F2;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-2px);border-color:var(--blue)}
+.card b{display:block;font-size:19px;font-weight:500;margin-bottom:6px;color:var(--blue)}
+.card span{font-size:15px;opacity:.8}
+h2{font-size:26px;font-weight:500;margin:40px 0 16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{background:#fff;border-radius:14px;padding:20px;border-left:5px solid var(--magenta)}
+.stat .n{font-size:34px;font-weight:700;color:var(--magenta)}
+.stat.t{border-left-color:var(--teal)}.stat.t .n{color:var(--teal)}
+.stat p{margin:4px 0 0;font-size:15px}
+ul.team{list-style:none;padding:0;margin:0}
+ul.team li{background:#fff;border-radius:14px;padding:16px 20px;margin-bottom:10px;font-size:15px}
+ul.team b{font-weight:500}
+.note{font-size:14px;opacity:.75;margin-top:12px}
+footer{text-align:center;font-size:14px;padding:24px;opacity:.7}
+footer a,main a{color:var(--blue)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">STAT.DATATHON-2026 · Data to Policy · 1 место</span>
+    <h1>Кредитный лимит: кто проиграет?</h1>
+    <p class="sub">Credit limit: who loses? Team STAR</p>
+    <p class="lead">A household-level microsimulation of tightening Kazakhstan's consumer-credit debt-service limit (КДН, now 50% of income) on the synthetic D-004 household survey, 2023-2024. A flat 30% limit hits the poorest households hardest; a targeted limit gives the regulator the same cut in consumer credit without blocking more loans for food and medicine.</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="cards">
+      <a class="card" href="simulator/simulator.html"><b>Симулятор</b><span>Set the limit and see who loses access to credit, by income fifth, region and loan purpose.</span></a>
+      <a class="card" href="slides/main_18/preview.html"><b>Презентация финала</b><span>18 slides with the 7-minute speech in the speaker notes. Press N to hide the notes.</span></a>
+      <a class="card" href="https://github.com/olaflaitinen/star-credit-limit-microsim"><b>Код и данные</b><span>Python pipeline, results, findings and method notes on GitHub.</span></a>
+    </div>
+
+    <h2>Key results</h2>
+    <div class="stats">
+      <div class="stat"><div class="n">33.1% vs 4.1%</div><p>of repayers above 50% КДН in the poorest vs the richest fifth</p></div>
+      <div class="stat"><div class="n">3.5x</div><p>higher odds of borrowing from private persons and pawnshops for basic-needs borrowers</p></div>
+      <div class="stat"><div class="n">34.5% vs 8.5%</div><p>of new bank and MFO loans blocked by a flat 30% limit, poorest vs richest fifth</p></div>
+      <div class="stat t"><div class="n">14.2%</div><p>of basic-needs loans blocked under the targeted limit, the same as today (0% with a social exemption)</p></div>
+    </div>
+    <p class="note">Synthetic data: the directions are reliable, the magnitudes are to be confirmed on real data. All numbers and caveats: <a href="https://github.com/olaflaitinen/star-credit-limit-microsim/blob/main/docs/FINDINGS.md">docs/FINDINGS.md</a>.</p>
+
+    <h2>Команда</h2>
+    <ul class="team">
+      <li><b>Джафарли Искендер Анар оглы</b> (Руководитель команды). Университет АДА, Школа информационных технологий и инженерии (SITE), Баку, Азербайджан.</li>
+      <li><b>Садыгова Назпери Агали гызы</b>. Московский государственный университет имени М. В. Ломоносова, Факультет менеджмента, Баку, Азербайджан.</li>
+      <li><b>Иманов Юнус Фариз оглы</b>. Хельсинкский университет, Департамент математики и статистики, Хельсинки, Финляндия.</li>
+    </ul>
+  </div>
+</main>
+<footer>Team STAR, 2026 · <a href="https://github.com/olaflaitinen/star-credit-limit-microsim/blob/main/LICENSE">MIT License</a></footer>
+</body>
+</html>
