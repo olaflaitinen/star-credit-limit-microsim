@@ -1,0 +1,13 @@
+# raw organiser data: never commit
+data/raw/
+synthetic_microdata_2021-2024_20260921/
+*.zip
+
+# pipeline outputs
+out/
+*.pkl
+*.parquet
+
+# Python and OS files
+__pycache__/
+.DS_Store
