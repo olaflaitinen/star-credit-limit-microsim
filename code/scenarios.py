@@ -1,5 +1,5 @@
 """Сравнение сценариев лимита КДН: единый vs адресный.
-Usage: python3 scenarios.py out/reg_new.pkl
+Usage: python3 code/scenarios.py out/reg_new.pkl
 """
 import sys, pandas as pd
 rn = pd.read_pickle(sys.argv[1])

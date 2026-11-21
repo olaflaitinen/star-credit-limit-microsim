@@ -1,3 +1,8 @@
+"""Descriptives, hypotheses Г1-Г4 and the flat-limit simulation.
+
+Usage: python3 code/analyze.py out/hh_quarter.pkl out
+Writes out/results.json and out/reg_new.pkl (the 4,284 new loans from banks and MFOs).
+"""
 import sys, json
 import pandas as pd, numpy as np
 import statsmodels.formula.api as smf

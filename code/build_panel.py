@@ -1,5 +1,5 @@
 """Build household-quarter panel from D-004 (2023-2024) + D-008 + D-002.
-Usage: python3 -I build_panel.py <data_root> <out_dir>
+Usage: python3 code/build_panel.py <data_root> <out_dir>
 """
 import sys, glob, os
 import pandas as pd

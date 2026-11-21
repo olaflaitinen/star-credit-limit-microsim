@@ -1,8 +1,8 @@
 """Export the per-loan arrays that simulator.html embeds as `const D = {...}`.
 
 Usage:
-    python3 export_sim_data.py out/reg_new.pkl out/sim_data.json
-    python3 export_sim_data.py out/reg_new.pkl out/sim_data.json --inject ../simulator/simulator.html
+    python3 code/export_sim_data.py out/reg_new.pkl out/sim_data.json
+    python3 code/export_sim_data.py out/reg_new.pkl out/sim_data.json --inject simulator/simulator.html
 
 Keys (one entry per new loan from a bank or MFO, n = 4284):
     dsr  debt-service ratio of the household in that quarter (6 significant digits, capped at 9.999)

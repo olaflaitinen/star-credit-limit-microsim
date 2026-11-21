@@ -1,3 +1,9 @@
+"""Regional labour context from T-001 and the limit grid (20-70%) used by the dashboard.
+
+Usage: python3 code/extra.py <data_root> out
+T-001 shares no key with the D series, so it is joined only by region (TE).
+Adds labour_by_TE and grid to out/results.json.
+"""
 import sys, json, pandas as pd, numpy as np
 root, out = sys.argv[1], sys.argv[2]
 R = json.load(open(f"{out}/results.json"))
