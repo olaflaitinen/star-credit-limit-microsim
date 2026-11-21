@@ -1,0 +1,61 @@
+name: checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile all Python files
+        run: python -m compileall -q code slides
+
+      - name: Check that the saved results and the simulator data are valid
+        run: |
+          python - <<'PY'
+          import json, re
+          r = json.load(open("code/results.json", encoding="utf-8"))
+          assert r["n_hh_quarters"] == 96000, r["n_hh_quarters"]
+          assert r["n_regulated_newloans"] == 4284, r["n_regulated_newloans"]
+          html = open("simulator/simulator.html", encoding="utf-8").read()
+          m = re.search(r"const D\s*=\s*(\{.*?\});", html, re.S)
+          assert m, "const D not found in simulator.html"
+          json.loads(m.group(1))
+          print("results.json and simulator data OK")
+          PY
+
+      - name: Rebuild the slide previews
+        run: |
+          for d in main_18 final_9 speech_9; do python slides/build_preview.py "$d"; done
+          git diff --exit-code slides/*/preview.html
+
+      - name: No em dashes or emoji in the repository
+        run: |
+          python - <<'PY'
+          import pathlib, re, sys
+          bad = re.compile("[\u2014\U0001F300-\U0001FAFF]")
+          hits = []
+          for p in pathlib.Path(".").rglob("*"):
+              if ".git" in p.parts or not p.is_file():
+                  continue
+              try:
+                  text = p.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+              if bad.search(text):
+                  hits.append(str(p))
+          if hits:
+              sys.exit("Em dashes or emoji found in: " + ", ".join(hits))
+          print("No em dashes or emoji")
+          PY
